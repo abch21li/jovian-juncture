@@ -5,12 +5,12 @@
   <p>Something went wrong, come back later.</p>
    {{else}}
 <div class="faqcontentchild">
-  {{#if faqErrors.length}}
+  {{#if errors.length}}
   <div class="faqvalidationerror">
 
 <h4>An FAQ was not able to be added because:</h4>
 <ul>
-  {{#each faqErrors}}
+  {{#each errors}}
   <li>{{this}}</li>
   {{/each}}
   <br>
@@ -42,20 +42,20 @@
             <h3>A: {{answer}}</h3>
             <br>
            </li>
-           {{!-- {{#if../isLoggedIn}} --}}
+           {{#if../isLoggedIn}}
            <button type="button" class="" value="//" id="faqupdatebutton"><a href="/faq/update/{{id}}"><h4>//</h4></a>
            </button>
            <br>
            <form action="/faq/delete/{{id}}" id="deletefaqform" method="get">
              <input type="submit" class="" id="faqdeletebutton" value="X" />
            </form>
-           {{!-- {{/if}} --}}
+           {{/if}}
          {{/each}}
         </ol>
         <br />
      </div>
 
-        {{!-- {{#if isLoggedIn}} --}}
+          {{#if isLoggedIn}}
          <div class="addnewfaqparent">
           <form action="/faqs/add" method="POST">
             <div class="form-outline mb-4">
@@ -82,7 +82,7 @@
             <input type="submit" value="Submit" class="btn btn-light">
           </form>
         </div>
-        {{!-- {{/if}} --}}
+        {{/if}}
     
      
       {{else}}
@@ -95,7 +95,7 @@
       <br>
       <br>
 
-       {{!-- {{#if isLoggedIn}} --}}
+       {{#if isLoggedIn}}
         <div class="addnewfaqparent">
           <form action="/faqs/add" method="POST">
             <div class="form-outline mb-4">
@@ -124,7 +124,7 @@
           </form>
         </div>
         </div>
-         {{!-- {{/if}} --}}
+         {{/if}}
       {{/if}}
 
   {{/if}}

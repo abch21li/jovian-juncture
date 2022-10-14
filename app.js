@@ -27,6 +27,22 @@ app.use(
   })
 );
 
+db.run(
+  "CREATE TABLE IF NOT EXISTS faqs (question TEXT, answer TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
+);
+
+db.run(
+  "CREATE TABLE IF NOT EXISTS reviews (text TEXT, name TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
+);
+
+db.run(
+  "CREATE TABLE IF NOT EXISTS bookings (booking TEXT, artist TEXT, project TEXT, email TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
+);
+
+db.run(
+  "CREATE TABLE IF NOT EXISTS messages (name TEXT, email TEXT, subject TEXT, message TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
+);
+
 app.engine(
   "hbs",
   expressHandlebars.engine({
@@ -157,13 +173,9 @@ app.post("/booking/add", function (request, response) {
   const project = request.body.projectdescription;
   const email = request.body.emailaddress;
 
-  const validationErrors = getValidationErrorsForBooking(
-    artist,
-    project,
-    email
-  );
+  const errors = getValidationErrorsForBooking(artist, project, email);
 
-  if (validationErrors.length == 0) {
+  if (errors.length == 0) {
     const query =
       "INSERT INTO bookings (booking, artist, project, email) VALUES (?, ?, ?, ?)";
     const values = [newBooking, artist, project, email];
@@ -184,7 +196,7 @@ app.post("/booking/add", function (request, response) {
     }
   } else {
     const model = {
-      validationErrors,
+      errors,
       newBooking,
       artist,
       project,
@@ -235,13 +247,9 @@ app.post("/booking/update/:id", function (request, response) {
   const newemail = request.body.email;
   const id = request.params.id;
 
-  const validationErrors = getValidationErrorsForBooking(
-    newartist,
-    newproject,
-    newemail
-  );
+  const errors = getValidationErrorsForBooking(newartist, newproject, newemail);
 
-  if (validationErrors.length == 0) {
+  if (errors.length == 0) {
     const query =
       "UPDATE bookings SET artist = ?, project = ?, email = ? WHERE id = ?";
     const values = [newartist, newproject, newemail, id];
@@ -256,7 +264,7 @@ app.post("/booking/update/:id", function (request, response) {
     });
   } else {
     const model = {
-      validationErrors,
+      errors,
       newartist,
       newproject,
       newemail,
@@ -493,13 +501,13 @@ app.post("/faqs/add", function (request, response) {
   const query = "INSERT INTO faqs (question, answer) VALUES (?, ?)";
   const values = [question, answer];
 
-  const faqErrors = getValidationErrorsForFaq(question, answer);
+  const errors = getValidationErrorsForFaq(question, answer);
 
   if (!request.session.isLoggedIn) {
-    faqErrors.push("You have to login to add an FAQ");
+    errors.push("You have to login to add an FAQ");
   }
 
-  if (faqErrors.length == 0) {
+  if (errors.length == 0) {
     db.run(query, values, function (error) {
       if (error) {
         console.log(error);
@@ -510,7 +518,7 @@ app.post("/faqs/add", function (request, response) {
     });
   } else {
     const model = {
-      faqErrors,
+      errors,
       question,
       answer,
     };
@@ -521,36 +529,18 @@ app.post("/faqs/add", function (request, response) {
 //DELETE FAQ
 
 app.get("/faq/delete/:id", function (request, response) {
-  const question = request.body.questiontext;
-  const answer = request.body.answertext;
   const id = request.params.id;
   const query = "DELETE FROM faqs WHERE id = ?";
   const values = [id];
 
-  const faqErrors = getValidationErrorsForFaq(question, answer);
-
-  if (!request.session.isLoggedIn) {
-    faqErrors.push("You have to login to delete FAQs");
-  }
-
-  if (faqErrors.length == 0) {
-    db.get(query, values, function (error) {
-      if (error) {
-        console.log(error);
-        //display error
-      } else {
-        response.redirect("/faqs/");
-      }
-    });
-  } else {
-    const model = {
-      faqErrors,
-      question,
-      answer,
-      id,
-    };
-    response.render("faqs.hbs", model);
-  }
+  db.get(query, values, function (error) {
+    if (error) {
+      console.log(error);
+      //display error
+    } else {
+      response.redirect("/faqs/");
+    }
+  });
 });
 
 //UPDATE FAQ

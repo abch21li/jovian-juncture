@@ -14,10 +14,10 @@
    <br>
   <h1>Bookings</h1>
   <div class="validationerror">
-  {{#if validationErrors.length}}
+  {{#if errors.length}}
 <h4>A booking was not able to be added because:</h4>
 <ul>
-  {{#each validationErrors}}
+  {{#each errors}}
   <li>{{this}}</li>
   {{/each}}
   <br>
@@ -88,7 +88,7 @@
   <div class="g-col-4" id="bookingscentercolumn">
     <br>
     <h1>Studio A:</h1>
-    <form action="/bookings/add" method="post" id="studioAform" onsubmit="return is_checked">
+    <form action="/booking/add" method="post" id="studioAform" onsubmit="return is_checked">
       <div class="studioAslots">
         <h4>A: 11/04/2022: 10.00 - 14.00
         <input

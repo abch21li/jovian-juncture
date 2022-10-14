@@ -3,11 +3,11 @@
 <h1>Update Booking</h1>
 <br />
 <div class="updatebookingparent">
-  {{#if validationErrors.length}}
+  {{#if errors.length}}
     <div class="validationerror">
       <h4>Your booking information was not able to be updated because:</h4>
       <ul>
-        {{#each validationErrors}}
+        {{#each errors}}
           <li>{{this}}</li>
         {{/each}}
         <br />
@@ -15,7 +15,7 @@
     </div>
   {{/if}}
 
-  {{#if validationErrors.length}}
+  {{#if errors.length}}
     <form action="/booking/update/{{id}}" method="post">
       <div class="form-outline mb-4">
         <input
