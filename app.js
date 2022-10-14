@@ -18,6 +18,8 @@ const MIN_REVIEW_NAME_LENGTH = 2;
 
 const app = express();
 
+const PORT = process.env.PORT || 3030;
+
 app.use(
   expressSession({
     secret: "askj487rjdask2",
@@ -617,4 +619,8 @@ app.get("/faqs/:id", function (request, response) {
 
 /* -------------------------------------------------- */
 
-app.listen(8080);
+//--- Reference: Free Code Camp
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
+});
+//------------------
