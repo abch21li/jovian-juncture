@@ -52,6 +52,10 @@ app.engine(
   })
 );
 
+const path = require("path");
+const { resourceUsage } = require("process");
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(express.static("public"));
 
 app.use(
