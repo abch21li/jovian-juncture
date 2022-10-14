@@ -1,0 +1,75 @@
+<br />
+<br />
+<h1>Update Review</h1>
+  {{#if errors.length}}
+  <div class="reviewvalidationerror">
+<h4>This review was not able to be updated because:</h4>
+<ul>
+  {{#each errors}}
+  <li>{{this}}</li>
+  {{/each}} 
+   </div>
+    {{/if}}
+<br />
+
+{{#if errors.length}}
+<div class="updatereivewparent">
+  <form action="/review/update/{{id}}" method="post">
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="reviewtext"
+        id="questioninput"
+        class="form-control"
+        value="{{newtext}}"
+      />
+      <label class="form-label" for="form2Example7">Question</label>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="artistname"
+        id="answerinput"
+        class="form-control"
+        value="{{newname}}"
+      />
+      <label class="form-label" for="form2Example8">Answer</label>
+    </div>
+
+    <button type="submit" value="Confirm" class="btn btn-light"><h5>Confirm
+      </h5></button>
+  </form>
+
+  {{else}}
+
+  <div class="updatereivewparent">
+  <form action="/review/update/{{id}}" method="post">
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="reviewtext"
+        id="questioninput"
+        class="form-control"
+        value="{{text}}"
+      />
+      <label class="form-label" for="form2Example7">Review</label>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="artistname"
+        id="answerinput"
+        class="form-control"
+        value="{{name}}"
+      />
+      <label class="form-label" for="form2Example8">Name</label>
+    </div>
+
+    <button type="submit" value="Confirm" class="btn btn-light"><h5>Confirm
+      </h5></button>
+  </form>
+  {{/if}}
+
+</div>

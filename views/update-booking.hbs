@@ -1,0 +1,106 @@
+<br />
+<br />
+<h1>Update Booking</h1>
+<br />
+<div class="updatebookingparent">
+  {{#if validationErrors.length}}
+    <div class="validationerror">
+      <h4>Your booking information was not able to be updated because:</h4>
+      <ul>
+        {{#each validationErrors}}
+          <li>{{this}}</li>
+        {{/each}}
+        <br />
+      </ul>
+    </div>
+  {{/if}}
+
+  {{#if validationErrors.length}}
+    <form action="/booking/update/{{id}}" method="post">
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          name="artist"
+          id="questioninput"
+          class="form-control"
+          value="{{newartist}}"
+        />
+        <label class="form-label" for="form2Example7">Artist</label>
+      </div>
+
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          name="project"
+          id="questioninput"
+          class="form-control"
+          value="{{newproject}}"
+        />
+        <label class="form-label" for="form2Example7">Project</label>
+      </div>
+
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          name="email"
+          id="answerinput"
+          class="form-control"
+          value="{{newemail}}"
+        />
+        <label class="form-label" for="form2Example8">Email</label>
+      </div>
+
+      <button type="submit" value="Confirm" class="btn btn-light"><h5>Confirm
+        </h5></button>
+      <br />
+      <br />
+      <br />
+      <br />
+    </form>
+
+  {{else}}
+
+    <form action="/booking/update/{{id}}" method="post">
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          name="artist"
+          id="questioninput"
+          class="form-control"
+          value="{{artist}}"
+        />
+        <label class="form-label" for="form2Example7">Artist</label>
+      </div>
+
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          name="project"
+          id="questioninput"
+          class="form-control"
+          value="{{project}}"
+        />
+        <label class="form-label" for="form2Example7">Project</label>
+      </div>
+
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          name="email"
+          id="answerinput"
+          class="form-control"
+          value="{{email}}"
+        />
+        <label class="form-label" for="form2Example8">Email</label>
+      </div>
+
+      <button type="submit" value="Confirm" class="btn btn-light"><h5>Confirm
+        </h5></button>
+      <br />
+      <br />
+      <br />
+      <br />
+    </form>
+
+  {{/if}}
+</div>

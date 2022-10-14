@@ -1,0 +1,186 @@
+    <div class="reviewheadercontent">
+      <h1>Reviews</h1>
+    </div>
+  <div class="reviewcontentparent">
+{{#if dbError}}
+   <div class="reviewdisplayparent">
+  <p>Something went wrong, come back later.</p>
+   {{else}}
+  <br>
+{{#if reviews.length}}
+  <div class="reviewdisplayparent">
+    <ol>
+      {{#each reviews}}
+        <br />
+        <li>
+          <h2>"{{text}}"</h2>    
+          
+        <h5>{{name}}  |  Previous client of Jovian Juncture Recording Studios</h5>
+        <br>  
+        </li>
+        {{!-- {{#if../isLoggedIn}} --}}
+        <button type="button" class="" value="//" id="faqupdatebutton"><a href="/review/update/{{id}}"><h4>//</h4></a>
+          </button>
+          <br>
+        <form action="/review/delete/{{id}}" id="deletefaqform" method="get">
+          <input type="submit" class="" id="faqdeletebutton" value="X" />
+        </form>
+        <br />
+        {{!-- {{/if}} --}}
+      {{/each}}
+    </ol>
+    </div>
+
+        <div class="addreviewparent">
+          <form action="/reviews/add" method="POST">
+          <h3>Want to leave a review?</h3>
+
+             <div class="reviewinputparent">
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="reviewtext"
+                id="questioninput"
+                class="form-control"
+                value="{{text}}"
+              />
+              <label class="form-label" for="form2Example9"><p>Review:</p></label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="artistname"
+                id="answerinput"
+                class="form-control"
+                value="{{name}}"
+              />
+              <label class="form-label" for="form2Example10"><p>Name:</p></label>
+            </div>
+
+           <input type="submit" value="Submit" class="btn btn-light">
+          </form>
+          </div>
+
+          
+    {{else}}
+
+
+            {{#if reviews.length}}
+          <div class="reviewdisplayparent">
+            <ol>
+              {{#each reviews}}
+                <br />
+                <li>
+                  <h2>"{{text}}"</h2>    
+                  
+                <h3>- {{name}}</h3>
+                <br>
+                </li>
+                <button type="button" class="" value="//" id="faqupdatebutton"><a href="/review/update/{{id}}"><h4>//</h4></a>
+                  </button>
+                  <br>
+                <form action="/review/delete/{{id}}" id="deletefaqform" method="get">
+                  <input type="submit" class="" id="faqdeletebutton" value="X" />
+                </form>
+                ________
+                <br />
+              {{/each}}
+            </ol>
+            </div>
+
+          <div class="addreviewparent">
+          <form action="/reviews/add" method="POST">
+          <h3>Want to leave a review?</h3>
+
+             <div class="reviewinputparent">
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="reviewtext"
+                id="questioninput"
+                class="form-control"
+                value="{{text}}"
+              />
+              <label class="form-label" for="form2Example9"><p>Review:</p></label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="artistname"
+                id="answerinput"
+                class="form-control"
+                value="{{name}}"
+              />
+              <label class="form-label" for="form2Example10"><p>Name:</p></label>
+            </div>
+
+           <input type="submit" value="Submit" class="btn btn-light">
+          </form>
+          </div>  
+
+          {{else}}
+
+               {{#if errors.length}}
+              <div class="reviewdisplayparent">
+             <h4>A review was not able to be added because:</h4>
+              <ul>
+                {{#each errors}}
+                <li>{{this}}</li>
+                {{/each}}
+                </ul>
+                </div>
+             
+                {{else}}
+
+                <div class="reviewdisplayparent">
+                  <div class="noreviewsparent">
+                <h1>Studio Reviews</h1>
+               <h4>There are no reviews to show at this time.</h4>
+               </div>
+               </div>
+               {{/if}}
+
+          <div class="addreviewparent">
+          <form action="/reviews/add" method="POST">
+          <h3>Want to leave a review?</h3>
+            <div class="reviewinputparent">
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="reviewtext"
+                id="questioninput"
+                class="form-control"
+                value="{{text}}"
+              />
+              <label class="form-label" for="form2Example9"><p>Review:</p></label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="artistname"
+                id="answerinput"
+                class="form-control"
+                value="{{name}}"
+              />
+              <label class="form-label" for="form2Example10"><p>Name:</p></label>
+            </div>
+
+           <input type="submit" value="Submit" class="btn btn-light">
+          </form>
+          </div>  
+
+          {{/if}}
+
+  {{/if}}
+  <br>
+  <br>
+  <br>
+  <br>
+ {{/if}}
+</div>
+
+
+

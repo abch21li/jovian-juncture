@@ -1,0 +1,135 @@
+<div class="faqcontentparent">
+<br>
+{{#if dbError}}
+   <div class="reviewdisplayparent">
+  <p>Something went wrong, come back later.</p>
+   {{else}}
+<div class="faqcontentchild">
+  {{#if faqErrors.length}}
+  <div class="faqvalidationerror">
+
+<h4>An FAQ was not able to be added because:</h4>
+<ul>
+  {{#each faqErrors}}
+  <li>{{this}}</li>
+  {{/each}}
+  <br>
+  <button type="button" class="btn btn-light" id="aboutbutton"><a href="/faqs"><h5
+          >Back</h5></a></button>
+  </div>
+   
+   {{else}}
+
+  <div class="faqheader">
+    <h1>FAQ'S</h1>
+    </div>
+{{#if dbError}}
+    <p>Something went wrong, come back later.</p>
+</div>
+</div>
+       
+  <div class="faqdisplayparent">
+  {{else}}
+    {{#if faqs.length}}
+     <div class="faqdisplaychild">
+        <ol>
+          {{#each faqs}}
+           <li>
+            <h2>Q: {{question}}</h2>
+            _____________________
+            <br>
+            <br>
+            <h3>A: {{answer}}</h3>
+            <br>
+           </li>
+           {{!-- {{#if../isLoggedIn}} --}}
+           <button type="button" class="" value="//" id="faqupdatebutton"><a href="/faq/update/{{id}}"><h4>//</h4></a>
+           </button>
+           <br>
+           <form action="/faq/delete/{{id}}" id="deletefaqform" method="get">
+             <input type="submit" class="" id="faqdeletebutton" value="X" />
+           </form>
+           {{!-- {{/if}} --}}
+         {{/each}}
+        </ol>
+        <br />
+     </div>
+
+        {{!-- {{#if isLoggedIn}} --}}
+         <div class="addnewfaqparent">
+          <form action="/faqs/add" method="POST">
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="questiontext"
+                id="questioninput"
+                class="form-control"
+                value="{{question}}"
+              />
+              <label class="form-label" for="form2Example7"><p>Question</p></label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="answertext"
+                id="answerinput"
+                value="{{answer}}"
+                class="form-control"
+              />
+              <label class="form-label" for="form2Example8"><p>Answer</p></label>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-light">
+          </form>
+        </div>
+        {{!-- {{/if}} --}}
+    
+     
+      {{else}}
+  
+      <p>There are no faq's to show at this time.</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+       {{!-- {{#if isLoggedIn}} --}}
+        <div class="addnewfaqparent">
+          <form action="/faqs/add" method="POST">
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="questiontext"
+                id="questioninput"
+                value="{{question}}"
+                class="form-control"
+              />
+              <label class="form-label" for="form2Example9"><p>Question</p></label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                name="answertext"
+                id="answerinput"
+                value="{{answer}}"
+                class="form-control"
+              />
+              <label class="form-label" for="form2Example10"><p>Answer</p></label>
+            </div>
+
+           <input type="submit" value="Submit" class="btn btn-light">
+          </form>
+        </div>
+        </div>
+         {{!-- {{/if}} --}}
+      {{/if}}
+
+  {{/if}}
+
+ {{/if}}
+{{/if}}
+ </div>
+

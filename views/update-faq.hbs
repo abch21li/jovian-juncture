@@ -1,0 +1,76 @@
+<br />
+<br />
+
+<div class="updatefaqparent">
+  <h1>Update FAQ</h1>
+  {{#if faqErrors.length}}
+  <div class="faqvalidationerror">
+<h4>An FAQ was not able to be updated because:</h4>
+<ul>
+  {{#each faqErrors}}
+  <li>{{this}}</li>
+  {{/each}} 
+   </div>
+    {{/if}}
+
+  {{#if faqErrors.length}}
+ 
+  <form action="/faq/update/{{id}}" method="post">
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="question"
+        id="questioninput"
+        class="form-control"
+        value="{{newQuestion}}"
+      />
+      <label class="form-label" for="form2Example7">Question</label>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="answer"
+        id="answerinput"
+        class="form-control"
+        value="{{newAnswer}}"
+      />
+      <label class="form-label" for="form2Example8">Answer</label>
+    </div>
+
+    <button type="submit" value="Confirm" class="btn btn-light"><h5>Confirm
+      </h5></button>
+  </form>
+
+  {{else}}
+
+    <form action="/faq/update/{{id}}" method="post">
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="question"
+        id="questioninput"
+        class="form-control"
+        value="{{question}}"
+      />
+      <label class="form-label" for="form2Example7">Question</label>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input
+        type="text"
+        name="answer"
+        id="answerinput"
+        class="form-control"
+        value="{{answer}}"
+      />
+      <label class="form-label" for="form2Example8">Answer</label>
+    </div>
+
+    <button type="submit" value="Confirm" class="btn btn-light"><h5>Confirm
+      </h5></button>
+  </form>
+
+  {{/if}}
+
+</div>

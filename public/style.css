@@ -1,0 +1,908 @@
+body {
+  background-color: #161b22;
+  height: auto;
+}
+
+.heroimagechild {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.text-center {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+main {
+  overflow: hidden;
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.navleft {
+  width: 40%;
+  justify-content: left;
+  margin-left: 30px;
+}
+.navright {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  height: 40px;
+  margin-top: 10px;
+  justify-content: space-evenly;
+}
+
+.logoparent {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  margin-top: 0;
+}
+
+.logochild {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  margin-top: 10px;
+}
+
+#mainlogoh1 {
+  color: #cba287;
+  font-weight: 300;
+}
+
+.btn-light {
+  width: 120px;
+  background-color: transparent;
+  border: #bee6dc;
+  border-style: solid;
+  border-width: lighter;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+
+  color: #bee6dc;
+}
+
+#bookingsbutton {
+  width: 300px;
+  height: 45px;
+  background-color: transparent;
+  border-width: medium;
+  border-style: solid;
+  font-size: small;
+  font-weight: bold;
+  color: #bee6dc;
+}
+
+ul {
+  color: #cba287;
+}
+
+h5 {
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  color: #bee6dc;
+  font-family: sans-serif;
+  margin-top: 5px;
+}
+
+h4 {
+  color: white;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
+
+h3 {
+  color: cba287;
+}
+
+h2 {
+  color: white;
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: xx-large;
+  margin-top: 20px;
+}
+
+h1 {
+  color: #bee6dc;
+}
+
+ol {
+  color: white;
+  list-style: none;
+}
+
+p {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.footerright {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+  margin-right: 30px;
+}
+
+.footerleft {
+  width: 50%;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+}
+
+.startcontentparent {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------------------------------START PAGE */
+
+.updatefaqparent {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* -------------------------------BOOKING-UPDATE PAGE */
+
+.updatebookingparent {
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------------------------------FAQS PAGE */
+
+.faqheader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.faqdisplayparent {
+  width: 700px;
+}
+
+.faqdisplaychild {
+  width: 60%;
+  padding: 2rem;
+}
+
+.faqcontentparent {
+  width: 100%;
+}
+
+.faqcontentchild {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#deletefaqform {
+  width: 200px;
+}
+
+.addnewfaqparent {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+#faqdeletebutton {
+  width: 30px;
+  height: 25px;
+  background-color: darkslategray;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+  block-size: inherit;
+}
+
+#faqupdatebutton {
+  width: 31px;
+  height: 30px;
+  background-color: #301934;
+  align-items: center;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+.faqvalidationerror {
+  width: 450px;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.faqvalidationerror li {
+  width: 330px;
+}
+
+.faqvalidationerror ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.reviewvalidationerror {
+  width: 450px;
+  height: none;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+/* -------------------------------CONTACT PAGE */
+
+.contactconfirmationparent {
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contactconfirmationparent h2 {
+  padding: 1rem;
+}
+
+.contactvalidationerror {
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contactvalidationerror ul {
+  padding: 0;
+}
+
+.contactvalidationerror li {
+  width: 330px;
+  text-align: center;
+}
+
+.contactcontentparent {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactcontentchild {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
+.contactleft {
+  margin: 1rem;
+  width: 60%;
+}
+
+.contactright {
+  margin-top: 40px;
+  width: 40%;
+}
+
+.contentfaqparent {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.faqheadertext {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* -------------------------------BOOKINGS PAGE */
+
+.bookingdisplayborder {
+  border-style: solid;
+  border-width: lighter;
+  color: #e7cdc2;
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  align-items: center;
+}
+.bookingcontentparent {
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.bookingsheadercontent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bookingcontentchild #bookingsbutton {
+  border-width: lighter;
+}
+
+.bookingitem {
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#bookingdeletebutton {
+  width: 30px;
+  height: 25px;
+  background-color: darkslategray;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+  block-size: inherit;
+}
+
+.bookingeditbuttons {
+  margin-top: 10px;
+}
+
+.bookingscolumnparent {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.confirmbookingsparent {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#confirmbookingsbutton {
+  width: 200px;
+}
+
+#bookingsleftcolumn {
+  width: 350px;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-right: 40px;
+}
+
+.displaybookingsparent ol {
+  width: 350px;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+.nobookingsmessage h4 {
+  padding: 1rem;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.availablebookingsheader {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.deletebookingform {
+  width: 30px;
+  margin-top: 0;
+}
+
+.displaybookingsparent li {
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  text-align: left;
+  border: white;
+  border-style: solid;
+  border-width: lighter;
+  height: 260px;
+}
+
+#bookingsleftcolumn li {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bookingscentercolumn {
+  width: 300px;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: center;
+  border: white;
+  border-style: solid;
+  border-width: lighter;
+}
+
+#bookingsrightcolumn {
+  width: 300px;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: center;
+  border: white;
+  border-style: solid;
+  border-width: lighter;
+}
+
+#studioAform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#studioBform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.studioAslots {
+  height: 370px;
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: right;
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bookingstyling {
+  background-color: black;
+}
+
+.studioBslots {
+  height: 370px;
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: right;
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+#slotstyling {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 250px;
+  height: 40px;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: small;
+  background-color: #e7cdc2;
+}
+
+#checkstyling {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  justify-content: center;
+}
+
+.artistinfoparent {
+  padding: 2rem;
+  width: 600px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.artistinfochild {
+  width: 300px;
+}
+
+.bookingcontentparent {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookingcontentchild {
+  margin-bottom: 150px;
+  width: 550px;
+  align-items: center;
+  text-align: center;
+}
+
+.validationerror {
+  width: 500px;
+  justify-content: center;
+  text-align: center;
+}
+
+.validationerror li {
+  width: 330px;
+}
+
+.validationerror ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+/* -------------------------------LOGIN PAGE */
+
+.logincontentparent {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logincontentparent h5 {
+  padding: 2rem;
+  text-align: center;
+}
+
+#logoutbutton {
+  width: 100px;
+  height: 30px;
+  background-color: #b2b2cf;
+  border: none;
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.logoutbuttonparent {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+}
+
+/* -------------------------------REVIEWS PAGE */
+
+.reviewcontentparent {
+  width: 100%;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-items: top;
+  justify-content: space-between;
+}
+
+.reviewheadercontent {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  height: 150px;
+}
+
+form {
+  width: 290px;
+}
+
+#updatebutton {
+  width: 100px;
+  height: 30px;
+  background-color: #b2b2cf;
+  border: none;
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+#deletebutton {
+  width: 100px;
+  height: 30px;
+  background-color: salmon;
+  border: none;
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+main.reviews {
+  width: 100%;
+  overflow-y: none;
+  overflow-x: none;
+  height: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewdisplayparent {
+  width: 700px;
+  margin-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewcontentparent li {
+  margin-right: 20px;
+}
+
+.addreviewparent {
+  width: 550px;
+  padding: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: top;
+  align-items: top;
+  margin-right: 50px;
+}
+
+.noreviewsparent {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 180px;
+}
+
+.addreviewparent form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.addreviewparent h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.addreviewchild {
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reviewinputparent {
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reviewinputparent h3 {
+  margin-bottom: 20px;
+}
+
+form {
+  color: aliceblue;
+}
+
+#reviewform {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#reviewsubmitbutton {
+  font-weight: bold;
+  font-size: small;
+}
+
+/* -------------------------------ABOUT PAGE */
+
+#aboutuscontentparent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+#aboutuscontentchild {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#aboutcolumntopleft {
+  width: 450px;
+  height: 500px;
+}
+
+#aboutcolumntopright {
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutcolumnbottomleft {
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutcolumnbottomright {
+  width: 450px;
+  height: 500px;
+}
+
+.abouttoprightparent h4 {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+}
+
+.abouttoprightchild {
+  text-align: left;
+}
+
+.aboutbottomleftparent h4 {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+}
+
+.aboutbottomleftchild {
+  text-align: right;
+}

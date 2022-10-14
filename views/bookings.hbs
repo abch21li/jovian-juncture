@@ -1,0 +1,290 @@
+
+
+
+<div class="bookingcontentparent">
+
+ <div class="bookingsheadercontent">
+   {{#if dbError}}
+   <div class="reviewdisplayparent">
+  <p>Something went wrong, come back later.</p>
+   {{else}}
+
+   <br>
+   <br>
+   <br>
+  <h1>Bookings</h1>
+  <div class="validationerror">
+  {{#if validationErrors.length}}
+<h4>A booking was not able to be added because:</h4>
+<ul>
+  {{#each validationErrors}}
+  <li>{{this}}</li>
+  {{/each}}
+  <br>
+  <button type="button" class="btn btn-light" id="aboutbutton"><a href="/bookings"><h5
+          >Back</h5></a></button>
+  {{else}}
+  </div>
+ 
+</ul>
+
+<br>
+<h4>Please select an available booking from either Studio A, or Studio B <br>
+  then submit your project and contact information.</h4>
+  <br>
+  <br>
+  </div>
+
+  <div class="bookingdisplayborder">
+  <div class="g-col-4" id="bookingsleftcolumn">
+       
+       <div class="displaybookingsparent">
+         {{#if bookings.length}}
+         {{!-- New Bookings Display Here --}}
+         <br>
+            <ol><h2>Current Bookings</h2>
+            <br>
+          {{#each bookings}}
+          <li>
+          <div class="bookingitem">
+          <h3>Booking ID: #037{{id}}</h3>
+          <h4>Artist: {{artist}}</h4>
+          <h4>Project: {{project}}</h4>
+          <h4>Email: {{email}}</h4>
+          <h4>Studio {{booking}}</h4>
+          <div class="bookingeditbuttons">
+          <button type="button" class="" value="//" id="faqupdatebutton"><a href="/booking/update/{{id}}"><h4>//</h4></a>
+          </button>
+          {{#if../isLoggedIn}}
+          <form action="/booking/delete/{{id}}" class="deletebookingform" method="get">
+          <input type="submit" class="" id="bookingdeletebutton" value="X"/>
+          </form>
+          {{/if}}
+          </div>
+          <br>
+   
+          </div>
+          </li>
+          <br>
+           {{/each}}
+          </ol>
+          {{else}}
+          <div class="nobookingsmessage">
+          <h4>There are currently no bookings.</h4>
+          </div>
+          <br>
+         {{/if}}
+       </div>
+  </div>
+</div>
+
+<div class="grid text-center" id="bookingscolumnparent" style="--bs-columns: 2; --bs-gap: 1rem;">
+  <div class="availablebookingsheader">
+    <br>
+    <br> 
+
+
+  </div>
+  <div class="g-col-4" id="bookingscentercolumn">
+    <br>
+    <h1>Studio A:</h1>
+    <form action="/bookings/add" method="post" id="studioAform" onsubmit="return is_checked">
+      <div class="studioAslots">
+        <h4>A: 11/04/2022: 10.00 - 14.00
+        <input
+          type="radio"
+          class="studio_A"
+          id="checkstyling"
+          name="bookingSlot"
+          value= "A: 11/04/2022: 10.00 - 14.00" 
+          />
+        </h4>
+        
+        <h4>A: 11/05/2022: 8.00 - 12.00
+        <input
+          type="radio"
+          class="studio_A"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="A: 11/05/2022: 8.00 - 12.00"
+        />
+        </h4>
+
+        <h4>
+          A: 11/06/2022: 14.00 - 18.00
+        <input
+          type="radio"
+          class="studio_A"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="A: 11/06/2022: 14.00 - 18.00"
+        />
+        </h4>
+
+        <h4>A: 11/07/2022: 9.00 - 13.00
+        <input
+          type="radio"
+          class="studio_A"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          name="bookingSlot"
+          value="A: 11/07/2022: 9.00 - 13.00"
+        />
+        </h4>
+
+        <h4>A: 11/08/2022: 10.00 - 15.00
+        <input
+          type="radio"
+          class="studio_A"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="A: 11/08/2022: 10.00 - 15.00"
+        />
+        </h4>
+
+        <h4>A: 11/09/2022: 8.00 - 12.00
+        <input
+          type="radio"
+          class="studio_A"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="A: 11/09/2022: 8.00 - 12.00"
+        />
+        </h4>
+      </div>
+  </div>
+  
+  <div class="g-col-4" id="bookingsrightcolumn">
+    <br>
+    <h1>Studio B:</h1>
+      <div class="studioBslots">
+        <h4>B: 11/04/2022: 9.00 - 14.00
+        <input
+          type="radio"
+          class="studio_B"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="B: 11/04/2022: 9.00 - 14.00"
+        />
+        </h4>
+
+        <h4>B: 11/05/2022: 8.00 - 12.00
+        <input
+          type="radio"
+          class="studio_B"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="B: 11/05/2022: 8.00 - 12.00"
+        />
+        </h4>
+
+        <h4>B: 11/06/2022: 14.00 - 18.00
+        <input
+          type="radio"
+          class="studio_B"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="B: 11/06/2022: 14.00 - 18.00"
+        />
+        </h4>
+
+        <h4>B: 11/07/2022: 9.00 - 13.00
+        <input
+          type="radio"
+          class="studio_B"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value=""
+        />
+        </h4>
+
+        <h4>B: 11/08/2022: 10.00 - 15.00
+        <input
+          type="radio"
+          class="studio_B"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="B: 11/08/2022: 10.00 - 15.00"
+        />
+        </h4>
+
+        <h4>B: 11/09/2022: 8.00 - 12.00
+        <input
+          type="radio"
+          class="studio_B"
+          id="checkstyling"
+          method="post"
+          name="bookingSlot"
+          value="B: 11/09/2022: 8.00 - 12.00"
+        />
+       </div>
+      </h4>
+      </div>
+    </div>
+    <br>
+    <br>
+     <div class="artistinfoparent">
+       <br>
+       <h1>Artist Information</h1>
+       <br>
+
+    <div class="artistinfochild">
+        {{! Artist Name }}
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            name="artist"
+            id="form2Example1"
+            class="form-control"
+            value="{{artist}}"
+          />
+          <label class="form-label" for="form2Example1"><h5>Artist Name</h5></label>
+        </div>
+
+        {{! Email }}
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            value="{{project}}"
+            name="projectdescription"
+            id="form2Example3"
+            class="form-control"
+          />
+          <label class="form-label" for="form2Example3"><h5>Project Description</h5></label>
+        </div>
+
+        {{! Email }}
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            value="{{email}}"
+            name="emailaddress"
+            id="form2Example3"
+            class="form-control"
+          />
+          <label class="form-label" for="form2Example3"><h5>Email</h5></label>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" value="Login" class="btn btn-light"><h5
+          >Submit</h5></button>
+      </form>
+    </div>
+  </div>
+  {{/if}}
+</ul>
+{{/if}}
+</div>
+  </div>
+</div>
+</div>
