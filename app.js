@@ -61,6 +61,8 @@ app.use(
   })
 );
 
+app.use(express.static("public"));
+
 app.use(function (request, response, next) {
   const isLoggedIn = request.session.isLoggedIn;
 
@@ -619,8 +621,6 @@ app.get("/faqs/:id", function (request, response) {
 
 /* -------------------------------------------------- */
 
-//--- Reference: Free Code Camp
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
-//------------------
