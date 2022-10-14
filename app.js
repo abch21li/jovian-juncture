@@ -52,16 +52,13 @@ app.engine(
   })
 );
 
-const path = require("path");
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 app.use(
   bodyParser.urlencoded({
     extended: false,
   })
 );
-
-app.use(express.static("public"));
 
 app.use(function (request, response, next) {
   const isLoggedIn = request.session.isLoggedIn;
@@ -624,3 +621,5 @@ app.get("/faqs/:id", function (request, response) {
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
+
+// app.listen(8080);
