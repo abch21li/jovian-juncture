@@ -227,6 +227,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: top;
+  margin-bottom: 100px;
 }
 
 .faqcontentchild {
@@ -385,8 +386,8 @@ footer {
 /* -------------------------------CONTACT PAGE */
 
 .contactheader {
-  margin-top: 40px;
-  padding: 4rem;
+  padding: 1rem;
+  margin-bottom: 60px;
 }
 .contactconfirmationparent {
   display: flex;
@@ -420,7 +421,6 @@ footer {
 }
 
 .contactcontentparent {
-  height: 700px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -435,18 +435,18 @@ footer {
   align-items: center;
   justify-content: space-evenly;
   width: 60%;
-  margin-bottom: 100px;
+  margin-bottom: 300px;
 }
 
 .contactleft {
   padding: 1rem;
   width: 60%;
-  height: 500px;
+  height: 600px;
 }
 
 .contactright {
   width: 40%;
-  height: 500px;
+  height: 600px;
   padding: 1rem;
 }
 
@@ -478,12 +478,12 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
 .bookingcontentparent {
   width: 100%;
-  overflow-y: scroll;
-  display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-bottom: 200px;
 }
 
 .bookingsheadercontent {
@@ -940,7 +940,7 @@ form {
   flex: wrap;
   flex-direction: column;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 300px;
 }
 
 #aboutuscontentchild {
