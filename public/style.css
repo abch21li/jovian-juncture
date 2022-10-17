@@ -194,15 +194,6 @@ footer {
 
 /* -------------------------------START PAGE */
 
-.updatefaqparent {
-  height: 500px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 /* -------------------------------BOOKING-UPDATE PAGE */
 
 .updatebookingparent {
@@ -307,6 +298,34 @@ footer {
   justify-content: center;
   text-align: center;
   align-items: center;
+}
+
+.updatefaqparent {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  align-items: top;
+  justify-content: center;
+}
+
+.updatefaqparent {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.updatefaqchild {
+  padding: 2rem;
+  margin-bottom: 100px;
+}
+
+.updatefaqparent h1 {
+  margin-bottom: 20px;
 }
 
 /* -------------------------------CONTACT PAGE */
@@ -619,7 +638,6 @@ footer {
 }
 
 .bookingcontentparent {
-  height: 700px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -627,10 +645,10 @@ footer {
 }
 
 .bookingcontentchild {
-  margin-bottom: 150px;
   width: 550px;
   align-items: center;
   text-align: center;
+  margin-bottom: 150px;
 }
 
 .validationerror {
@@ -690,6 +708,23 @@ footer {
 }
 
 /* -------------------------------REVIEWS PAGE */
+
+.updatereviewcontent {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+}
+
+.updatereviewcontent h1 {
+  margin: 20px;
+}
+.updatereviewchild {
+  padding: 2rem;
+}
 
 .reviewcontentparent {
   width: 100%;

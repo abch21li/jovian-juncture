@@ -1,19 +1,19 @@
-<br />
-<br />
+
 
 <div class="updatefaqparent">
-  <h1>Update FAQ</h1>
-  {{#if faqErrors.length}}
+   <h1>Update FAQ</h1>
+  <div class="updatefaqchild">
+  {{#if errors.length}}
   <div class="faqvalidationerror">
 <h4>An FAQ was not able to be updated because:</h4>
 <ul>
-  {{#each faqErrors}}
+  {{#each errors}}
   <li>{{this}}</li>
   {{/each}} 
    </div>
     {{/if}}
 
-  {{#if faqErrors.length}}
+  {{#if errors.length}}
  
   <form action="/faq/update/{{id}}" method="post">
     <div class="form-outline mb-4">
@@ -72,5 +72,5 @@
   </form>
 
   {{/if}}
-
+  </div>
 </div>

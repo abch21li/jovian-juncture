@@ -282,13 +282,13 @@ function getValidationErrorsForReview(text, name) {
 
   if (text.length < MIN_REVIEW_NAME_LENGTH) {
     validationErrors.push(
-      "Your name needs at least " + MIN_REVIEW_NAME_LENGTH + " characters."
+      "Your review needs at least " + MIN_REVIEW_NAME_LENGTH + " characters."
     );
   }
 
   if (name.length < MIN_REVIEW_NAME_LENGTH) {
     validationErrors.push(
-      "Your review needs at least " + MIN_REVIEW_NAME_LENGTH + " characters."
+      "Your name needs at least " + MIN_REVIEW_NAME_LENGTH + " characters."
     );
   }
 
@@ -305,32 +305,14 @@ app.get("/review/delete/:id", function (request, response) {
   const text = request.body.reviewtext;
   const name = request.body.artistname;
 
-  const errors = getValidationErrorsForReview(text, name);
-
-  if (!request.session.isLoggedIn) {
-    errors.push("You have to login to delete reviews.");
-  } else {
-    response.redirect("/login");
-  }
-
-  if (errors.length == 0) {
-    db.get(query, values, function (error) {
-      if (error) {
-        console.log(error);
-        //display error
-      } else {
-        response.redirect("/reviews/");
-      }
-    });
-  } else {
-    const model = {
-      errors,
-      text,
-      name,
-      id,
-    };
-    response.render("reviews.hbs", model);
-  }
+  db.get(query, values, function (error) {
+    if (error) {
+      console.log(error);
+      //display error
+    } else {
+      response.redirect("/reviews/");
+    }
+  });
 });
 
 //UPDATE REVIEW
@@ -361,8 +343,6 @@ app.post("/review/update/:id", function (request, response) {
 
   if (!request.session.isLoggedIn) {
     errors.push("You have to login to update reviews.");
-  } else {
-    response.redirect("/login");
   }
 
   if (errors.length == 0) {
@@ -568,13 +548,13 @@ app.post("/faq/update/:id", function (request, response) {
   const query = "UPDATE faqs SET question = ?, answer = ? WHERE id = ?";
   const values = [newQuestion, newAnswer, id];
 
-  faqErrors = getValidationErrorsForFaq(newQuestion, newAnswer);
+  errors = getValidationErrorsForFaq(newQuestion, newAnswer);
 
   if (!request.session.isLoggedIn) {
-    faqErrors.push("You have to login to edit FAQs");
+    errors.push("You have to login to edit FAQs");
   }
 
-  if (faqErrors.length == 0) {
+  if (errors.length == 0) {
     db.run(query, values, function (error) {
       if (error) {
         console.log(error);
@@ -585,7 +565,7 @@ app.post("/faq/update/:id", function (request, response) {
     });
   } else {
     const model = {
-      faqErrors,
+      errors,
       newQuestion,
       newAnswer,
       id,

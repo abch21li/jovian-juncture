@@ -31,9 +31,8 @@
     
     <title>Jovian Juncture</title>
   </head>
-  <body>
-    <div class="hero">
-      <div class="container">
+<body>
+ <div class="hero">
     <nav>
       <div class="navleft">
       <div class="logoparent">
@@ -55,17 +54,17 @@
       <button type="button" class="btn btn-light" id="reviewsbutton"><a href="/reviews"><h5
           >Reviews</h5></a></button>
     </nav>
-    </div>
-     <main>
+    
+    <main>
        
     {{{body}}}
          
     </main>
-    <footer>
+     <footer>
       <div class="footerleft">
       Copyright Chandler Abel 2022
       </div>
-      <div class="footerright">
+       <div class="footerright">
         {{#unless isLoggedIn}}
           <button type="button" class="btn btn-light" id="loginbutton"><a href="/login"><h5
           >Login</h5></a></button>
@@ -73,15 +72,14 @@
         {{#if isLoggedIn}}
         <form action="/logout" class="logoutform" method="post">
            <div class="logoutbuttonparent">
-           <input type="submit" action="/logout" value="Logout" class="btn btn-light" id="logoutbutton">
+           <input type="submit" action="/logout" value="Logout" class="btn btn-light" id="loginbutton">
            </div>
         </form>
         {{/if}}
-      </div>
-    </footer>
-       </div>
+       </div> 
+      </footer>
    </div>
-  </body>
+</body>
 </html>
 
 
