@@ -941,7 +941,6 @@ form {
   flex-direction: column;
   margin-top: 30px;
   margin-bottom: 30px;
-  justify-content: space-between;
 }
 
 #aboutuscontentchild {
@@ -959,7 +958,7 @@ form {
 }
 
 #aboutcolumntopright {
-  width: 400px;
+  width: 450px;
   height: 500px;
   display: flex;
   flex: wrap;
@@ -969,7 +968,7 @@ form {
 }
 
 #aboutcolumnbottomleft {
-  width: 400px;
+  width: 450px;
   height: 500px;
   display: flex;
   flex: wrap;
@@ -993,7 +992,10 @@ form {
 }
 
 .abouttoprightchild {
+  display: flex;
   text-align: left;
+  align-items: left;
+  justify-content: left;
 }
 
 .aboutbottomleftparent h4 {
