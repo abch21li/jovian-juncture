@@ -1,13 +1,16 @@
 body {
   background-color: #161b22;
-  height: auto;
 }
 
-.heroimagechild {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
+.hero {
+  background-image: url("/images/jjheroimage-large-blank.jpg");
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-size: 1920 1080;
+}
+
+.container {
+  max-width: none;
 }
 
 .text-center {
@@ -41,7 +44,7 @@ nav {
 .navleft {
   width: 40%;
   justify-content: left;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 .navright {
   display: flex;
@@ -157,7 +160,7 @@ footer {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .footerright {
@@ -176,6 +179,9 @@ footer {
   flex-direction: row;
   justify-content: left;
   align-items: left;
+  color: #bee6dc;
+  margin-top: 30px;
+  opacity: 0.5;
 }
 
 .startcontentparent {
@@ -352,16 +358,19 @@ footer {
   align-items: center;
   justify-content: space-evenly;
   width: 60%;
+  margin-bottom: 100px;
 }
 
 .contactleft {
-  margin: 1rem;
+  padding: 1rem;
   width: 60%;
+  height: 500px;
 }
 
 .contactright {
-  margin-top: 40px;
   width: 40%;
+  height: 500px;
+  padding: 1rem;
 }
 
 .contentfaqparent {
