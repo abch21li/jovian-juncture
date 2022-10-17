@@ -140,6 +140,8 @@ h2 {
 
 h1 {
   color: #bee6dc;
+  font-weight: 200;
+  font-size: 60;
 }
 
 ol {
@@ -210,7 +212,8 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
+  margin-bottom: 60px;
 }
 
 .faqdisplaychild {
@@ -381,6 +384,10 @@ footer {
 
 /* -------------------------------CONTACT PAGE */
 
+.contactheader {
+  margin-top: 40px;
+  padding: 4rem;
+}
 .contactconfirmationparent {
   display: flex;
   flex: wrap;
