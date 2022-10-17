@@ -1,10 +1,23 @@
 <div class="faqcontentparent">
-<br>
+    <div class="faqheader">
+    <h1>FAQ'S</h1>
+  </div>
 {{#if dbError}}
    <div class="reviewdisplayparent">
   <p>Something went wrong, come back later.</p>
    {{else}}
 <div class="faqcontentchild">
+  <div class="faqcontentleft">
+    <div class="faqimages">
+      <div class="studioimage">
+        <img src="/images/studio.jpg" width="95%" alt="">
+      </div>
+      {{!-- <div class="pianoimage">
+       <img src="/images/pianoplayer.jpg" width="95%" alt="">
+      </div> --}}
+    </div>
+  </div>
+  <div class="faqcontentright">
   {{#if errors.length}}
   <div class="faqvalidationerror">
 
@@ -20,17 +33,14 @@
    
    {{else}}
 
-<br>
-<br>
-  <div class="faqheader">
-    <h1>FAQ'S</h1>
-    </div>
 {{#if dbError}}
     <p>Something went wrong, come back later.</p>
-</div>
+ </div>
 </div>
        
   <div class="faqdisplayparent">
+    <br>
+    <br>
   {{else}}
     {{#if faqs.length}}
      <div class="faqdisplaychild">
@@ -89,16 +99,14 @@
      
       {{else}}
   
-      <p>There are no faq's to show at this time.</p>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+     
+   
 
        {{#if isLoggedIn}}
         <div class="addnewfaqparent">
+            <div class="faqvalidationerror">
+      <h4>There are no faq's to show at this time.</h4>
+      </div>
           <form action="/faqs/add" method="POST">
             <div class="form-outline mb-4">
               <input
