@@ -10,6 +10,34 @@ body {
   background-size: 1920 1080;
 }
 
+#navtab {
+  border: transparent;
+  border-style: solid;
+}
+
+#navbutton {
+  width: 120px;
+  border-width: lighter;
+  text-align: center;
+  align-items: center;
+
+  color: #bee6dc;
+  margin-left: 25px;
+  margin-right: 20px;
+  font-size: medium;
+  font-weight: 500;
+}
+
+#submitbutton {
+  width: 120px;
+  border-width: lighter;
+  text-align: center;
+  align-items: center;
+  color: #bee6dc;
+  font-size: medium;
+  font-weight: 500;
+}
+
 .container {
   max-width: none;
 }
@@ -82,7 +110,7 @@ nav {
   font-weight: 300;
 }
 
-.btn-light {
+.btn-dark {
   width: 120px;
   background-color: transparent;
   border: #bee6dc;
@@ -90,16 +118,24 @@ nav {
   border-width: lighter;
   text-align: center;
   align-items: center;
-  font-weight: bold;
-
   color: #bee6dc;
+  letter-spacing: 1px;
+}
+
+.btn-dark h5 {
+  font-size: medium;
+  font-weight: 500;
+}
+
+.btn-light h5 {
+  font-size: medium;
+  font-weight: 500;
 }
 
 #bookingsbutton {
   width: 300px;
   height: 45px;
-  background-color: transparent;
-  border-width: medium;
+  border-width: 2;
   border-style: solid;
   font-size: small;
   font-weight: bold;
@@ -892,7 +928,6 @@ main.reviews {
 
 .reviewinputparent {
   display: flex;
-  width: 300px;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
@@ -904,8 +939,20 @@ main.reviews {
   margin-bottom: 20px;
 }
 
+#questioninput {
+  width: 300px;
+}
+
+#reviewinput {
+  width: 300px;
+}
+
+#answerinput {
+  width: 300px;
+}
+
 form {
-  color: aliceblue;
+  color: antiquewhite;
 }
 
 #reviewform {

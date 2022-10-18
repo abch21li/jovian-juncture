@@ -27,65 +27,76 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="/style.css"/>
-    
+    <link rel="stylesheet" href="/style.css" />
+
     <title>Jovian Juncture</title>
   </head>
-<body>
- <div class="hero">
-    <nav>
-      <div class="navleft">
-      <div class="logoparent">
-        <div class="logochild">
-        <a href="/start"> <img src="/images/jjlogotype.png" width="110%" alt="">
-        </a>
+
+  <body>
+    <div class="hero">
+      <nav>
+        <div class="navleft">
+          <div class="logoparent">
+            <div class="logochild">
+              <a href="/start">
+                <img src="/images/jjlogotype.png" width="110%" alt="" />
+              </a>
+            </div>
+          </div>
         </div>
-    
-      </div>
-      </div>
-      
-      <div class="navright">
-        <button type="button" class="btn btn-light" id="aboutbutton"><a href="/start"><h5
-          >Home</h5></a></button>
-        <button type="button" class="btn btn-light" id="aboutbutton"><a href="/bookings"><h5
-          >Bookings</h5></a></button>
-      <button type="button" class="btn btn-light" id="aboutbutton"><a href="/about"><h5
-          >About</h5></a></button>
-      <button type="button" class="btn btn-light" id="faqbutton"><a href="/faqs"><h5
-          >FAQ</h5></a></button>
-      <button type="button" class="btn btn-light"id="contactbutton"><a href="/contact"><h5
-          >Contact</h5></a></button>
-      <button type="button" class="btn btn-light" id="reviewsbutton"><a href="/reviews"><h5
-          >Reviews</h5></a></button>
-    </nav>
-    
-    <main>
-       
-    {{{body}}}
-         
-    </main>
+
+        <div class="navright">
+          <button type="button" class="btn btn-dark" id="navtab"><a
+              href="/start"
+            ><h5>HOME</h5></a></button>
+          <button type="button" class="btn btn-dark" id="navtab"><a
+              href="/bookings"
+            ><h5>BOOKINGS</h5></a></button>
+          <button type="button" class="btn btn-dark" id="navtab"><a
+              href="/about"
+            ><h5>ABOUT</h5></a></button>
+          <button type="button" class="btn btn-dark" id="navtab"><a
+              href="/faqs"
+            ><h5>FAQ</h5></a></button>
+          <button type="button" class="btn btn-dark" id="navtab"><a
+              href="/reviews"
+            ><h5>REVIEWS</h5></a></button>
+          <button type="button" class="btn btn-dark" id="navbutton"><a
+              href="/contact"
+            ><h5>CONTACT</h5></a></button>
+        </div>
+      </nav>
+
+      <main>
+
+        {{{body}}}
+
+      </main>
       <footer>
-      <div class="footerleft">
-      Copyright Chandler Abel 2022
-      </div>
-       <div class="footerright">
-        {{#unless isLoggedIn}}
-          <button type="button" class="btn btn-light" id="loginbutton"><a href="/login"><h5
-          >Login</h5></a></button>
-        {{/unless}}
-        {{#if isLoggedIn}}
-        <form action="/logout" class="logoutform" method="post">
-           <div class="logoutbuttonparent">
-           <input type="submit" action="/logout" value="Logout" class="btn btn-light" id="loginbutton">
-           </div>
-        </form>
-        {{/if}}
-       </div> 
+        <div class="footerleft">
+          Copyright Chandler Abel 2022
+        </div>
+        <div class="footerright">
+          {{#unless isLoggedIn}}
+            <button type="button" class="btn btn-dark" id="submitbutton"><a
+                href="/login"
+              ><h5>LOGIN</h5></a></button>
+          {{/unless}}
+          {{#if isLoggedIn}}
+            <form action="/logout" class="logoutform" method="post">
+              <div class="logoutbuttonparent">
+                <input
+                  type="submit"
+                  action="/logout"
+                  value="LOG OUT"
+                  class="btn btn-dark"
+                  id="submitbutton"
+                />
+              </div>
+            </form>
+          {{/if}}
+        </div>
       </footer>
-   </div>
-</body>
+    </div>
+  </body>
 </html>
-
-
-
-

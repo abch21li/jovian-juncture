@@ -1,46 +1,39 @@
 
-
-
 <div class="bookingcontentparent">
+  <div class="bookingsheadercontent">
+    {{#if dbError}}
+    <div class="reviewdisplayparent">
+     <p>Something went wrong, come back later.</p>
+     {{else}}
 
- <div class="bookingsheadercontent">
-   {{#if dbError}}
-   <div class="reviewdisplayparent">
-  <p>Something went wrong, come back later.</p>
-   {{else}}
-
-   <br>
-   <h1>Bookings</h1>
-  {{#if errors.length}}
+     <br>
+     <h1>Bookings</h1>
+     {{#if errors.length}}
      <div class="bookingvalidationerrorparent">
-   
-  <div class="validationerror">
-<h4>A booking was not able to be added because:</h4>
-<ul>
-  {{#each errors}}
-  <li>{{this}}</li>
-  {{/each}}
-  <br>
-  <button type="button" class="btn btn-light" id="aboutbutton"><a href="/bookings"><h5
-          >Back</h5></a></button>
-  </div>
-  {{else}}
-</ul>
-  </div>
- 
+       <div class="validationerror">
+         <h4>A booking was not able to be added because:</h4>
+          <ul>
+          {{#each errors}}
+          <li>{{this}}</li>
+          {{/each}}
+          <br>
+          <button type="button" class="btn btn-dark" id="submitbutton"><a href="/bookings"><h5
+                  >Back</h5></a></button>
+          </div>
+          {{else}}
+          </ul>
+      </div>
+      <br> 
+      <div class="bookinginstructionsparent">
+        <h4>Please select an available booking from either Studio A, or Studio B <br>
+            then submit your project and contact information.</h4>
+      </div>
+       <br>
+       <br>
+    </div>
 
-<br>
- <div class="bookinginstructionsparent">
- <h4>Please select an available booking from either Studio A, or Studio B <br>
-  then submit your project and contact information.</h4>
-  </div>
-  <br>
-  <br>
-  </div>
-
-  <div class="bookingdisplayborder">
-  <div class="g-col-4" id="bookingsleftcolumn">
-       
+    <div class="bookingdisplayborder">
+    <div class="g-col-4" id="bookingsleftcolumn">
        <div class="displaybookingsparent">
          {{#if bookings.length}}
          {{!-- New Bookings Display Here --}}
@@ -55,17 +48,16 @@
           <h4><b>Project:</b> {{project}}</h4>
           <h4><b>Email:</b> {{email}}</h4>
           <h4><b>Studio</b> {{booking}}</h4>
-          <div class="bookingeditbuttons">
-          <button type="button" class="updatebuttonstyling" id="faqupdatebutton"><a href="/booking/update/{{id}}"><h5>Update</h5></a>
-          </button>
-          {{#if../isLoggedIn}}
-          <form action="/booking/delete/{{id}}" method="get">
-          <input type="submit" class="" id="deletebuttonstyling" value="Delete"/>
-          </form>
+            <div class="bookingeditbuttons">
+              <button type="button" class="updatebuttonstyling" id="faqupdatebutton"><a href="/booking/update/{{id}}"><h5>Update</h5></a>
+              </button>
+              {{#if../isLoggedIn}}
+              <form action="/booking/delete/{{id}}" method="get">
+              <input type="submit" class="" id="deletebuttonstyling" value="Delete"/>
+              </form>
           {{/if}}
-          </div>
+           </div>
           <br>
-   
           </div>
           </li>
           <br>
@@ -279,7 +271,7 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" value="Login" class="btn btn-light"><h5
+        <button type="submit" value="Login" id="submitbutton" class="btn btn-dark"><h5
           >Submit</h5></button>
       </form>
     </div>
