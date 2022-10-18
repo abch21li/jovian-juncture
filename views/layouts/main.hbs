@@ -46,22 +46,29 @@
         </div>
 
         <div class="navright">
-          <button type="button" class="btn btn-dark" id="navtab"><a
-              href="/start"
-            ><h5>HOME</h5></a></button>
-          <button type="button" class="btn btn-dark" id="navtab"><a
-              href="/bookings"
-            ><h5>BOOKINGS</h5></a></button>
+          <button
+            type="button"
+            class="btn btn-dark"
+            onclick="startTabClicked()"
+            id="navtab"
+          ><a href="/start"><h5>HOME</h5></a>
+            {{! <div class="starttabparent">
+              <div class="starttabchild"></div>
+            </div> }}
+          </button>
           <button type="button" class="btn btn-dark" id="navtab"><a
               href="/about"
             ><h5>ABOUT</h5></a></button>
+          <button type="button" class="btn btn-dark" id="navtab"><a
+              href="/bookings"
+            ><h5>BOOKINGS</h5></a></button>
           <button type="button" class="btn btn-dark" id="navtab"><a
               href="/faqs"
             ><h5>FAQ</h5></a></button>
           <button type="button" class="btn btn-dark" id="navtab"><a
               href="/reviews"
             ><h5>REVIEWS</h5></a></button>
-          <button type="button" class="btn btn-dark" id="navbutton"><a
+          <button type="button" class="btn btn-dark" id="contactbutton"><a
               href="/contact"
             ><h5>CONTACT</h5></a></button>
         </div>
