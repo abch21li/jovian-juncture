@@ -1,5 +1,6 @@
 body {
   background-color: #161b22;
+  height: 100vh;
 }
 
 .hero {
@@ -49,7 +50,7 @@ nav {
 .navright {
   display: flex;
   flex-direction: row;
-  width: 60%;
+  width: 55%;
   height: 40px;
   margin-top: 10px;
   justify-content: space-evenly;
@@ -105,8 +106,27 @@ nav {
   color: #bee6dc;
 }
 
+.updatebuttonstyling {
+  width: 100px;
+  height: 33px;
+  background-color: #b2b2cf;
+}
+
+#deletebuttonstyling {
+  width: 100px;
+  height: 33px;
+  background-color: #e7cdc2;
+  margin-top: 10px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.updatebuttonstyling h5 {
+  color: navy;
+}
+
 ul {
-  color: #cba287;
+  color: #e7cdc2;
 }
 
 h5 {
@@ -272,7 +292,8 @@ footer {
   flex-direction: column;
   width: 60%;
   justify-content: top;
-  align-items: top;
+
+  align-items: center;
   margin-right: 50px;
   height: 700px;
   overflow-y: scroll;
@@ -301,30 +322,9 @@ footer {
   padding-top: 1rem;
 }
 
-#faqdeletebutton {
-  width: 30px;
-  height: 25px;
-  background-color: darkslategray;
-  font-weight: bold;
-  align-items: center;
-  text-align: center;
-  block-size: inherit;
-}
-
-#faqupdatebutton {
-  width: 31px;
-  height: 30px;
-  background-color: #301934;
-  align-items: center;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-}
-
 .faqvalidationerror {
-  width: 450px;
+  width: 550px;
   display: flex;
-  padding: 2rem;
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -483,7 +483,7 @@ footer {
   width: 100%;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-bottom: 200px;
+  overflow-y: scroll;
 }
 
 .bookingsheadercontent {
@@ -684,7 +684,7 @@ footer {
 .artistinfoparent {
   padding: 2rem;
   width: 600px;
-  margin-bottom: 50px;
+  margin-bottom: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -709,10 +709,27 @@ footer {
   margin-bottom: 150px;
 }
 
+.bookingvalidationerrorparent {
+  display: flex;
+  justify-content: center;
+  flex: wrap;
+  flex-direction: column;
+  height: 700px;
+}
+
+.bookinginstructionsparent {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 20px;
+}
+
 .validationerror {
   width: 500px;
   justify-content: center;
   text-align: center;
+  margin-bottom: 200px;
 }
 
 .validationerror li {
@@ -803,33 +820,6 @@ footer {
 
 form {
   width: 290px;
-}
-
-#updatebutton {
-  width: 100px;
-  height: 30px;
-  background-color: #b2b2cf;
-  border: none;
-  font-size: small;
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-  font-family: sans-serif;
-  margin: 0;
-  margin-bottom: 5px;
-}
-
-#deletebutton {
-  width: 100px;
-  height: 30px;
-  background-color: salmon;
-  border: none;
-  font-size: small;
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-  font-family: sans-serif;
-  margin: 0;
 }
 
 main.reviews {

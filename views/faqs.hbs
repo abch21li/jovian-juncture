@@ -22,7 +22,16 @@
   <div class="faqcontentright">
   {{#if errors.length}}
   <div class="faqvalidationerror">
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 <h4>An FAQ was not able to be added because:</h4>
 <ul>
   {{#each errors}}
@@ -32,9 +41,7 @@
   <button type="button" class="btn btn-light" id="aboutbutton"><a href="/faqs"><h5
           >Back</h5></a></button>
   </div>
-   
    {{else}}
-
 {{#if dbError}}
     <p>Something went wrong, come back later.</p>
  </div>
@@ -57,17 +64,18 @@
             <br>
            </li>
            {{#if../isLoggedIn}}
-           <button type="button" class="" value="//" id="faqupdatebutton"><a href="/faq/update/{{id}}"><h4>//</h4></a>
+           <button type="button" class="updatebuttonstyling"><a href="/faq/update/{{id}}"><h5>Update</h5></a>
            </button>
            <br>
            <form action="/faq/delete/{{id}}" id="deletefaqform" method="get">
-             <input type="submit" class="" id="faqdeletebutton" value="X" />
+             <input type="submit" id="deletebuttonstyling" value="Delete" />
            </form>
            {{/if}}
          {{/each}}
         </ol>
         <br />
      </div>
+     
 
           {{#if isLoggedIn}}
          <div class="addnewfaqparent">
@@ -108,6 +116,8 @@
         <div class="addnewfaqparent">
             <div class="faqvalidationerror">
       <h4>There are no faq's to show at this time.</h4>
+      <br>
+      <br>
       </div>
           <form action="/faqs/add" method="POST">
             <div class="form-outline mb-4">

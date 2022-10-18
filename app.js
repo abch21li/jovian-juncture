@@ -18,7 +18,7 @@ const MIN_REVIEW_NAME_LENGTH = 2;
 
 const app = express();
 
-const PORT = process.env.PORT || 3030;
+// const PORT = process.env.PORT || 3030;
 
 app.use(
   expressSession({
@@ -598,8 +598,8 @@ app.get("/faqs/:id", function (request, response) {
 
 /* -------------------------------------------------- */
 
-app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`server started on port ${PORT}`);
+// });
 
-// app.listen(8080);
+app.listen(8080);

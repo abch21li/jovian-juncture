@@ -21,11 +21,11 @@
         <br>  
         </li>
         {{#if../isLoggedIn}}
-        <button type="button" class="" value="//" id="faqupdatebutton"><a href="/review/update/{{id}}"><h4>//</h4></a>
+        <button type="button" class="updatebuttonstyling"><a href="/review/update/{{id}}"><h5>Update</h5></a>
           </button>
           <br>
         <form action="/review/delete/{{id}}" id="deletefaqform" method="get">
-          <input type="submit" class="" id="faqdeletebutton" value="X" />
+          <input type="submit" id="deletebuttonstyling" value="Delete" />
         </form>
         <br />
         {{/if}}
