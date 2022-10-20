@@ -1,3 +1,6 @@
+/* -------------------------------GLOBAL STYLING */
+/* -----------------------------*/
+
 body {
   background-color: #161b22;
 }
@@ -8,6 +11,18 @@ body {
   padding-bottom: 10px;
   background-size: 1920 1080;
 }
+
+main {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BUTTON STYLING */
 
 #navtab {
   width: 120px;
@@ -21,7 +36,7 @@ body {
 
 #submitbutton {
   border-style: solid;
-  border-width: lighter;
+  border-width: 2;
   border-color: #bee6dc;
   text-align: center;
   align-items: center;
@@ -32,7 +47,7 @@ body {
 
 #contactbutton {
   border-style: solid;
-  border-width: lighter;
+  border-width: 2;
   border-color: #bee6dc;
   text-align: center;
   align-items: center;
@@ -40,76 +55,6 @@ body {
   font-size: medium;
   font-weight: 500;
   margin-left: 20px;
-}
-
-.container {
-  max-width: none;
-}
-
-.text-center {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-main {
-  overflow: hidden;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-nav {
-  width: 100%;
-  height: 120px;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: transparent;
-}
-
-.navleft {
-  width: 40%;
-  justify-content: left;
-  margin-left: 20px;
-}
-.navright {
-  display: flex;
-  flex-direction: row;
-  width: 55%;
-  height: 40px;
-  justify-content: space-evenly;
-}
-
-.logoparent {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: left;
-  text-align: center;
-  width: 200px;
-  height: 60px;
-  margin-top: 0;
-}
-
-.logochild {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 60px;
-}
-
-#mainlogoh1 {
-  color: #cba287;
-  font-weight: 300;
 }
 
 .btn-dark {
@@ -163,9 +108,80 @@ nav {
   color: navy;
 }
 
+form {
+  width: 290px;
+  color: antiquewhite;
+}
+
+.container {
+  max-width: none;
+}
+
+.text-center {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* NAVIGATION STYLING */
+
+nav {
+  width: 100%;
+  height: 120px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+}
+
+.navleft {
+  width: 40%;
+  justify-content: left;
+  margin-left: 20px;
+}
+.navright {
+  display: flex;
+  flex-direction: row;
+  width: 55%;
+  height: 40px;
+  justify-content: space-evenly;
+}
+
+.logoparent {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  margin-top: 0;
+}
+
+.logochild {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+}
+
+/* LIST STYLING */
+
 ul {
   color: #e7cdc2;
 }
+
+ol {
+  color: white;
+  list-style: none;
+}
+
+/* TEXT STYLING */
 
 h5 {
   font-size: small;
@@ -202,11 +218,6 @@ h1 {
   font-size: 60;
 }
 
-ol {
-  color: white;
-  list-style: none;
-}
-
 p {
   color: white;
 }
@@ -214,6 +225,8 @@ p {
 a {
   text-decoration: none;
 }
+
+/* FOOTER STYLING */
 
 footer {
   display: flex;
@@ -246,6 +259,9 @@ footer {
   opacity: 0.5;
 }
 
+/* -------------------------------START PAGE STYLING */
+/* -----------------------------*/
+
 .startcontentparent {
   height: 700px;
   width: 100%;
@@ -273,9 +289,8 @@ footer {
   color: #e7cdc2;
 }
 
-/* -------------------------------START PAGE */
-
 /* -------------------------------BOOKING-UPDATE PAGE */
+/* -----------------------------*/
 
 .updatebookingparent {
   display: flex;
@@ -285,7 +300,8 @@ footer {
   align-items: center;
 }
 
-/* -------------------------------FAQS PAGE */
+/* -------------------------------FAQ & UPDATE FAQ PAGES */
+/* -----------------------------*/
 
 .faqheader {
   width: 100%;
@@ -293,6 +309,23 @@ footer {
   justify-content: center;
   padding: 1rem;
   margin-bottom: 60px;
+}
+
+.contentfaqparent {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.faqheadertext {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .faqdisplaychild {
@@ -414,6 +447,8 @@ footer {
   align-items: center;
 }
 
+/* FAQ UPDATE STYLING */
+
 .updatefaqparent {
   width: 100%;
   height: 700px;
@@ -442,7 +477,8 @@ footer {
   margin-bottom: 20px;
 }
 
-/* -------------------------------CONTACT PAGE */
+/* -------------------------------CONTACT PAGE STYLING */
+/* -----------------------------*/
 
 .contactheader {
   padding: 1rem;
@@ -509,24 +545,8 @@ footer {
   padding: 1rem;
 }
 
-.contentfaqparent {
-  width: 500px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 3rem;
-}
-
-.faqheadertext {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* -------------------------------BOOKINGS PAGE */
+/* -------------------------------BOOKINGS PAGE STYLING */
+/* -----------------------------*/
 
 .bookingdisplayborder {
   border-style: solid;
@@ -784,6 +804,9 @@ footer {
   margin-bottom: 20px;
 }
 
+/* -------------------------------VALIDATION ERROR STYLING */
+/* -----------------------------*/
+
 .validationerror {
   width: 500px;
   justify-content: center;
@@ -804,7 +827,8 @@ footer {
   padding: 0;
 }
 
-/* -------------------------------LOGIN PAGE */
+/* -------------------------------LOGIN PAGE STYLING*/
+/* -----------------------------*/
 
 .logincontentparent {
   height: 700px;
@@ -841,7 +865,8 @@ footer {
   align-items: right;
 }
 
-/* -------------------------------REVIEWS PAGE */
+/* -------------------------------REVIEWS PAGE STYLING*/
+/* -----------------------------*/
 
 .updatereviewcontent {
   width: 100%;
@@ -875,10 +900,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   height: 150px;
-}
-
-form {
-  width: 290px;
 }
 
 main.reviews {
@@ -974,10 +995,6 @@ main.reviews {
   width: 300px;
 }
 
-form {
-  color: antiquewhite;
-}
-
 #reviewform {
   display: flex;
   flex-wrap: wrap;
@@ -991,7 +1008,8 @@ form {
   font-size: small;
 }
 
-/* -------------------------------ABOUT PAGE */
+/* -------------------------------ABOUT PAGE STYLING */
+/* -----------------------------*/
 
 #aboutuscontentparent {
   width: 100%;

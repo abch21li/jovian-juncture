@@ -5,21 +5,20 @@ const bodyParser = require("body-parser");
 const expressSession = require("express-session");
 const SQLiteStore = require("connect-sqlite3")(expressSession);
 const bcrypt = require("bcrypt");
-
 const messageRouter = require("./routers/message-router");
-
+// const bookingRouter = require("./routers/booking-router");
 const adminUsername = "admin";
 const adminPassword =
   "$2b$10$iI5lehyoaSke9GjnS5wHBub5pSuGqjGKZqqnndr24aFo9eHRwoSvO";
-
 const db = new sqlite3.Database("jovian-database.db");
-
 const MIN_REVIEW_NAME_LENGTH = 2;
-
 const app = express();
+// const PORT = process.env.PORT || 3030;
 
-const PORT = process.env.PORT || 3030;
+/* ----------------------------------------------------APP ENGINE*/
+/* -------------------------------------------------*/
 
+//SESSIONS
 app.use(
   expressSession({
     secret: "askj487rjdask2",
@@ -28,6 +27,37 @@ app.use(
     store: new SQLiteStore(),
   })
 );
+
+app.use(function (request, response, next) {
+  const isLoggedIn = request.session.isLoggedIn;
+
+  response.locals.isLoggedIn = isLoggedIn;
+
+  next();
+});
+
+//DEFAULT LAYOUT
+app.engine(
+  "hbs",
+  expressHandlebars.engine({
+    defaultLayout: "main.hbs",
+  })
+);
+
+//STATIC PAGE ACCESS
+app.use(express.static("public"));
+
+//BODY PARSER
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+
+app.use("/contact", messageRouter);
+
+/* ----------------------------------------------------DATA TABLES */
+/* -------------------------------------------------*/
 
 db.run(
   "CREATE TABLE IF NOT EXISTS faqs (question TEXT, answer TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
@@ -45,32 +75,8 @@ db.run(
   "CREATE TABLE IF NOT EXISTS messages (name TEXT, email TEXT, subject TEXT, message TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
 );
 
-app.engine(
-  "hbs",
-  expressHandlebars.engine({
-    defaultLayout: "main.hbs",
-  })
-);
-
-app.use(express.static("public"));
-
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
-
-app.use(function (request, response, next) {
-  const isLoggedIn = request.session.isLoggedIn;
-
-  response.locals.isLoggedIn = isLoggedIn;
-
-  next();
-});
-
-//ROUTERS
-
-app.use("/contact", messageRouter);
+/* ----------------------------------------------------PAGE OPERATIONS */
+/* -------------------------------------------------*/
 
 app.get("/", function (request, response) {
   response.render("start.hbs");
@@ -84,23 +90,25 @@ app.get("/about", function (request, response) {
   response.render("about.hbs");
 });
 
-/* -------------------------------CONTACT PAGE OPERATIONS */
+/* ---------------------------------------------------LOGIN PAGE OPERATIONS */
+/* -------------------------------------------------*/
 
-/* -------------------------------LOGIN PAGE OPERATIONS */
-
+//FETCH LOGIN PAGE
 app.get("/login", function (request, response) {
   response.render("login.hbs");
 });
 
+//LOGIN REQUEST
 app.post("/login", function (request, response) {
   const enteredUsername = request.body.username;
   const enteredPassword = request.body.password;
 
+  //HASH PASSWORD
   if (
     enteredUsername == adminUsername &&
     bcrypt.compareSync(enteredPassword, adminPassword)
   ) {
-    //Login
+    //LOGIN
     request.session.isLoggedIn = true;
     response.redirect("/");
   } else {
@@ -111,12 +119,25 @@ app.post("/login", function (request, response) {
   }
 });
 
+//LOGOUT REQUEST
 app.post("/logout", function (request, response) {
   request.session.isLoggedIn = false;
   response.redirect("/start");
 });
 
-/* -------------------------------BOOKINGS PAGE CRUD OPERATIONS */
+/* ---------------------------------------------------BOOKINGS PAGE CRUD OPERATIONS */
+/* -------------------------------------------------*/
+
+//VALIDATION ERRORS FOR BOOKING
+function getValidationErrorsForBooking(artist, project, email) {
+  const validationErrors = [];
+
+  if (artist.length == 0 || project.length == 0 || email.length == 0) {
+    validationErrors.push("You need to fill out all of the available fields.");
+  }
+
+  return validationErrors;
+}
 
 //DELETE BOOKING
 app.get("/booking/delete/:id", function (request, response) {
@@ -156,16 +177,6 @@ app.get("/bookings", function (request, response) {
     }
   });
 });
-
-function getValidationErrorsForBooking(artist, project, email) {
-  const validationErrors = [];
-
-  if (artist.length == 0 || project.length == 0 || email.length == 0) {
-    validationErrors.push("You need to fill out all of the available fields.");
-  }
-
-  return validationErrors;
-}
 
 //ADD BOOKING
 app.post("/booking/add", function (request, response) {
@@ -207,6 +218,7 @@ app.post("/booking/add", function (request, response) {
   }
 });
 
+//FETCH BOOKING ID
 app.get("/bookings/add/:id", function (request, response) {
   const id = request.params.id;
   const query = "SELECT * FROM bookings WHERE id = ?";
@@ -225,8 +237,7 @@ app.get("/bookings/add/:id", function (request, response) {
   });
 });
 
-//UPDATE BOOKING
-
+//FETCH BOOKING TO UPDATE
 app.get("/booking/update/:id", function (request, response) {
   const id = request.params.id;
   const query = "SELECT * FROM bookings WHERE id = ?";
@@ -242,6 +253,7 @@ app.get("/booking/update/:id", function (request, response) {
   });
 });
 
+//UPDATE BOOKING
 app.post("/booking/update/:id", function (request, response) {
   const newartist = request.body.artist;
   const newproject = request.body.project;
@@ -275,8 +287,10 @@ app.post("/booking/update/:id", function (request, response) {
   }
 });
 
-/* -------------------------------REVIEW PAGE CRUD OPERATIONS */
+/* ---------------------------------------------------REVIEW PAGE CRUD OPERATIONS */
+/* -------------------------------------------------*/
 
+//VALIDATION ERRORS FOR REVIEWS
 function getValidationErrorsForReview(text, name) {
   const validationErrors = [];
 
@@ -291,32 +305,81 @@ function getValidationErrorsForReview(text, name) {
       "Your name needs at least " + MIN_REVIEW_NAME_LENGTH + " characters."
     );
   }
-
   return validationErrors;
 }
 
-//DELETE REVIEW
-
-app.get("/review/delete/:id", function (request, response) {
-  const id = request.params.id;
-  const query = "DELETE FROM reviews WHERE id = ?";
-  const values = [id];
-
-  const text = request.body.reviewtext;
+//ADD REVIEW
+app.post("/reviews/add", function (request, response) {
   const name = request.body.artistname;
+  const text = request.body.reviewtext;
 
-  db.get(query, values, function (error) {
+  const errors = getValidationErrorsForReview(text, name);
+
+  if (errors.length == 0) {
+    const query = "INSERT INTO reviews (text, name) VALUES (?, ?)";
+    const values = [text, name];
+
+    db.run(query, values, function (error) {
+      if (error) {
+        console.log(error);
+        //display error message
+      } else {
+        response.redirect("/reviews/");
+      }
+    });
+  } else {
+    const model = {
+      errors,
+      text,
+      name,
+    };
+    response.render("reviews.hbs", model);
+  }
+});
+
+//FETCH REVIEWS
+app.get("/reviews", function (request, response) {
+  const query = "SELECT * FROM reviews ORDER BY id";
+
+  db.all(query, function (error, reviews) {
     if (error) {
       console.log(error);
-      //display error
+      //send back an error page
+
+      const model = {
+        dbError: true,
+      };
+      response.render("reviews.hbs", model);
     } else {
-      response.redirect("/reviews/");
+      const model = {
+        reviews,
+        dbError: false,
+      };
+      response.render("reviews.hbs", model);
     }
   });
 });
 
-//UPDATE REVIEW
+//FETCH REVIEW ID
+app.get("/reviews/:id", function (request, response) {
+  const id = request.params.id;
+  const query = "SELECT * FROM reviews WHERE id = ?";
+  const values = [id];
 
+  db.get(query, values, function (error, review) {
+    if (error) {
+      console.log(error);
+      //display error
+    } else {
+      const model = {
+        review,
+      };
+      response.render("review.hbs", model);
+    }
+  });
+});
+
+//FETCH REVIEW TO BE UPDATED
 app.get("/review/update/:id", function (request, response) {
   const id = request.params.id;
   const query = "SELECT * FROM reviews WHERE id = ?";
@@ -332,6 +395,7 @@ app.get("/review/update/:id", function (request, response) {
   });
 });
 
+//UPDATE REVIEW
 app.post("/review/update/:id", function (request, response) {
   const newtext = request.body.reviewtext;
   const newname = request.body.artistname;
@@ -365,80 +429,29 @@ app.post("/review/update/:id", function (request, response) {
   }
 });
 
-//FETCH REVIEWS
-
-app.get("/reviews", function (request, response) {
-  const query = "SELECT * FROM reviews ORDER BY id";
-
-  db.all(query, function (error, reviews) {
-    if (error) {
-      console.log(error);
-      //send back an error page
-
-      const model = {
-        dbError: true,
-      };
-      response.render("reviews.hbs", model);
-    } else {
-      const model = {
-        reviews,
-        dbError: false,
-      };
-      response.render("reviews.hbs", model);
-    }
-  });
-});
-
-//ADD REVIEW
-
-app.post("/reviews/add", function (request, response) {
-  const name = request.body.artistname;
-  const text = request.body.reviewtext;
-
-  const errors = getValidationErrorsForReview(text, name);
-
-  if (errors.length == 0) {
-    const query = "INSERT INTO reviews (text, name) VALUES (?, ?)";
-    const values = [text, name];
-
-    db.run(query, values, function (error) {
-      if (error) {
-        console.log(error);
-        //display error message
-      } else {
-        response.redirect("/reviews/");
-      }
-    });
-  } else {
-    const model = {
-      errors,
-      text,
-      name,
-    };
-    response.render("reviews.hbs", model);
-  }
-});
-
-app.get("/reviews/:id", function (request, response) {
+//DELETE REVIEW
+app.get("/review/delete/:id", function (request, response) {
   const id = request.params.id;
-  const query = "SELECT * FROM reviews WHERE id = ?";
+  const query = "DELETE FROM reviews WHERE id = ?";
   const values = [id];
 
-  db.get(query, values, function (error, review) {
+  const text = request.body.reviewtext;
+  const name = request.body.artistname;
+
+  db.get(query, values, function (error) {
     if (error) {
       console.log(error);
       //display error
     } else {
-      const model = {
-        review,
-      };
-      response.render("review.hbs", model);
+      response.redirect("/reviews/");
     }
   });
 });
 
-/* -------------------------------FAQ PAGE OPERATIONS */
+/* ---------------------------------------------------FAQ PAGE OPERATIONS */
+/* -------------------------------------------------*/
 
+//VALIDATION ERRORS FOR FAQS
 function getValidationErrorsForFaq(question, answer) {
   const validationErrors = [];
 
@@ -449,32 +462,7 @@ function getValidationErrorsForFaq(question, answer) {
   return validationErrors;
 }
 
-//FETCH FAQS
-
-app.get("/faqs", function (request, response) {
-  const query = "SELECT * FROM faqs ORDER BY id";
-
-  db.all(query, function (error, faqs) {
-    if (error) {
-      console.log(error);
-      //send back an error page
-
-      const model = {
-        dbError: true,
-      };
-      response.render("faqs.hbs", model);
-    } else {
-      const model = {
-        faqs,
-        dbError: false,
-      };
-      response.render("faqs.hbs", model);
-    }
-  });
-});
-
 //ADD FAQ
-
 app.post("/faqs/add", function (request, response) {
   const question = request.body.questiontext;
   const answer = request.body.answertext;
@@ -507,25 +495,51 @@ app.post("/faqs/add", function (request, response) {
   }
 });
 
-//DELETE FAQ
+//FETCH FAQS
+app.get("/faqs", function (request, response) {
+  const query = "SELECT * FROM faqs ORDER BY id";
 
-app.get("/faq/delete/:id", function (request, response) {
-  const id = request.params.id;
-  const query = "DELETE FROM faqs WHERE id = ?";
-  const values = [id];
-
-  db.get(query, values, function (error) {
+  db.all(query, function (error, faqs) {
     if (error) {
       console.log(error);
-      //display error
+      //send back an error page
+
+      const model = {
+        dbError: true,
+      };
+      response.render("faqs.hbs", model);
     } else {
-      response.redirect("/faqs/");
+      const model = {
+        faqs,
+        dbError: false,
+      };
+      response.render("faqs.hbs", model);
     }
   });
 });
 
-//UPDATE FAQ
+//FETCH FAQS
+app.get("/faqs/:id", function (request, response) {
+  const id = request.params.id;
 
+  const query = "SELECT * FROM faqs WHERE id = ?";
+
+  const values = [id];
+
+  db.get(query, values, function (error, faq) {
+    if (error) {
+      console.log(error);
+      //display error message
+    } else {
+      const model = {
+        faq,
+      };
+      response.render("faq.hbs", model);
+    }
+  });
+});
+
+//FETCH FAQ TO BE UPDATED
 app.get("/faq/update/:id", function (request, response) {
   const id = request.params.id;
   const query = "SELECT * FROM faqs WHERE id = ?";
@@ -541,6 +555,7 @@ app.get("/faq/update/:id", function (request, response) {
   });
 });
 
+//UPDATE FAQ
 app.post("/faq/update/:id", function (request, response) {
   const newQuestion = request.body.question;
   const newAnswer = request.body.answer;
@@ -575,7 +590,6 @@ app.post("/faq/update/:id", function (request, response) {
 });
 
 //FETCH FAQS
-
 app.get("/faqs/:id", function (request, response) {
   const id = request.params.id;
 
@@ -596,10 +610,26 @@ app.get("/faqs/:id", function (request, response) {
   });
 });
 
-/* -------------------------------------------------- */
+//DELETE FAQ
+app.get("/faq/delete/:id", function (request, response) {
+  const id = request.params.id;
+  const query = "DELETE FROM faqs WHERE id = ?";
+  const values = [id];
 
-app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`);
+  db.get(query, values, function (error) {
+    if (error) {
+      console.log(error);
+      //display error
+    } else {
+      response.redirect("/faqs/");
+    }
+  });
 });
 
-// app.listen(8080);
+/* ---------------------------------------------------------------------- */
+
+// app.listen(PORT, () => {
+//   console.log(`server started on port ${PORT}`);
+// });
+
+app.listen(8080);
