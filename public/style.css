@@ -296,267 +296,97 @@ footer {
   color: #e7cdc2;
 }
 
-/* -------------------------------BOOKING-UPDATE PAGE */
+/* -------------------------------ABOUT PAGE STYLING */
 /* -----------------------------*/
 
-.updatebookingparent {
-  display: flex;
-  flex: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* -------------------------------FAQ & UPDATE FAQ PAGES */
-/* -----------------------------*/
-
-.faqheader {
-  width: 100%;
+.aboutwelcomeheader {
   display: flex;
   justify-content: center;
-  padding: 1rem;
-  margin-bottom: 60px;
-}
-
-.contentfaqparent {
-  width: 500px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 3rem;
-}
-
-.faqheadertext {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+  height: 300px;
   align-items: center;
   text-align: center;
-}
-
-.faqdisplayparent {
-  width: 700px;
-  margin-left: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.faqdisplaychild {
-  margin-right: 50px;
-  justify-content: top;
-  align-items: top;
-}
-
-.faqcontentparent {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: top;
-  margin-bottom: 100px;
-}
-
-.faqcontentchild {
-  display: flex;
-  flex: wrap;
-  flex-direction: row;
-  justify-content: top;
-  align-items: top;
-}
-
-.faqdisplayparent {
   padding: 2rem;
-  align-items: top;
-  justify-content: top;
-  display: flex;
 }
 
-.faqcontentleft {
-  width: 40%;
-  display: flex;
-  flex: wrap;
-  justify-content: top;
-  align-items: top;
-}
-
-.studioimage {
-  margin-bottom: 40px;
-  justify-content: center;
-  display: flex;
-  margin-left: 50px;
-}
-
-.pianoimage {
-  margin-bottom: 50px;
-  justify-content: center;
-  display: flex;
-  margin-left: 50px;
-}
-
-.faqcontentright {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  justify-content: top;
-
-  align-items: center;
-  margin-right: 50px;
-  height: 700px;
-  overflow-y: scroll;
-}
-
-.faqimages {
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-  justify-content: right;
-  padding-top: 25px;
-}
-
-#deletefaqform {
-  width: 200px;
-}
-
-.addnewfaqparent {
-  width: 700px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 3rem;
-  padding-top: 1rem;
-}
-
-.faqvalidationerror {
-  width: 550px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
-
-.faqvalidationerror li {
-  width: 330px;
-}
-
-.faqvalidationerror ul {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-}
-
-.faqvalidationcusion {
-  height: 250px;
-}
-
-.reviewvalidationerror {
-  width: 450px;
-  height: none;
-  display: flex;
-  padding: 1rem;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
-
-/* FAQ UPDATE STYLING */
-
-.updatefaqparent {
-  height: 700px;
+#aboutuscontentparent {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-direction: column;
-}
-
-.updatefaqchild {
-  padding: 2rem;
-  margin-bottom: 100px;
-}
-
-.updatefaqparent h1 {
-  margin-bottom: 20px;
-}
-
-/* -------------------------------CONTACT PAGE STYLING */
-/* -----------------------------*/
-
-.contactheader {
-  padding: 1rem;
-  margin-bottom: 60px;
-}
-.contactconfirmationparent {
+  height: 100%;
   display: flex;
   flex: wrap;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.contactconfirmationparent h2 {
-  padding: 1rem;
-}
-
-.contactvalidationerror {
-  width: 450px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.contactvalidationerror ul {
-  padding: 0;
-}
-
-.contactvalidationerror li {
-  width: 330px;
-  text-align: center;
-}
-
-.contactcontentparent {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.contactcontentchild {
-  display: flex;
-  flex: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 60%;
+  margin-top: 30px;
   margin-bottom: 300px;
 }
 
-.contactleft {
-  padding: 1rem;
-  width: 60%;
-  height: 600px;
+#aboutuscontentchild {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.contactright {
-  width: 40%;
-  height: 600px;
-  padding: 1rem;
+#aboutcolumntopleft {
+  width: 450px;
+  height: 500px;
 }
 
-/* -------------------------------BOOKINGS PAGE STYLING */
+#aboutcolumntopright {
+  width: 450px;
+  height: 500px;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutcolumnbottomleft {
+  width: 450px;
+  height: 500px;
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutcolumnbottomright {
+  width: 450px;
+  height: 500px;
+}
+
+.abouttoprightparent h4 {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+}
+
+.abouttoprightchild {
+  display: flex;
+  text-align: left;
+  align-items: left;
+  justify-content: left;
+}
+
+.aboutbottomleftparent h4 {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+}
+
+.aboutbottomleftchild {
+  text-align: right;
+}
+
+/* -------------------------------BOOKINGS & UPDATE BOOKINGS PAGE STYLING */
 /* -----------------------------*/
 
 .bookingdisplayborder {
@@ -810,6 +640,8 @@ footer {
   margin-bottom: 20px;
 }
 
+/* FAQ UPDATE STYLING */
+
 .updatebookingparent {
   width: 100%;
   height: 700px;
@@ -827,21 +659,152 @@ footer {
   height: 200px;
 }
 
-/* -------------------------------VALIDATION ERROR STYLING */
-/* -----------------------------*/
-
-.validationerror {
-  width: 500px;
+.updatebookingparent {
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  margin-bottom: 200px;
+  align-items: center;
 }
 
-.validationerror li {
+/* -------------------------------FAQ & UPDATE FAQ PAGES */
+/* -----------------------------*/
+
+.faqheader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin-bottom: 60px;
+}
+
+.contentfaqparent {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.faqheadertext {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.faqdisplayparent {
+  width: 700px;
+  margin-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.faqdisplaychild {
+  margin-right: 50px;
+  justify-content: top;
+  align-items: top;
+}
+
+.faqcontentparent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  margin-bottom: 100px;
+}
+
+.faqcontentchild {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  justify-content: top;
+  align-items: top;
+}
+
+.faqdisplayparent {
+  padding: 2rem;
+  align-items: top;
+  justify-content: top;
+  display: flex;
+}
+
+.faqcontentleft {
+  width: 40%;
+  display: flex;
+  flex: wrap;
+  justify-content: top;
+  align-items: top;
+}
+
+.studioimage {
+  margin-bottom: 40px;
+  justify-content: center;
+  display: flex;
+  margin-left: 50px;
+}
+
+.pianoimage {
+  margin-bottom: 50px;
+  justify-content: center;
+  display: flex;
+  margin-left: 50px;
+}
+
+.faqcontentright {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  justify-content: top;
+
+  align-items: center;
+  margin-right: 50px;
+  height: 700px;
+  overflow-y: scroll;
+}
+
+.faqimages {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: right;
+  padding-top: 25px;
+}
+
+#deletefaqform {
+  width: 200px;
+}
+
+.addnewfaqparent {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+.faqvalidationerror {
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.faqvalidationerror li {
   width: 330px;
 }
 
-.validationerror ul {
+.faqvalidationerror ul {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -850,42 +813,39 @@ footer {
   padding: 0;
 }
 
-/* -------------------------------LOGIN PAGE STYLING*/
-/* -----------------------------*/
+.faqvalidationcusion {
+  height: 250px;
+}
 
-.logincontentparent {
-  height: 700px;
+.reviewvalidationerror {
+  width: 450px;
+  height: none;
   display: flex;
+  padding: 1rem;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+/* FAQ UPDATE STYLING */
+
+.updatefaqparent {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   flex-direction: column;
 }
 
-.logincontentparent h5 {
+.updatefaqchild {
   padding: 2rem;
-  text-align: center;
+  margin-bottom: 100px;
 }
 
-#logoutbutton {
-  width: 100px;
-  height: 30px;
-  background-color: #b2b2cf;
-  border: none;
-  font-size: small;
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-  font-family: sans-serif;
-  margin: 0;
-  margin-bottom: 5px;
-}
-
-.logoutbuttonparent {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: right;
-  align-items: right;
+.updatefaqparent h1 {
+  margin-bottom: 20px;
 }
 
 /* -------------------------------REVIEWS PAGE STYLING*/
@@ -1035,92 +995,131 @@ main.reviews {
   font-size: small;
 }
 
-/* -------------------------------ABOUT PAGE STYLING */
+/* -------------------------------CONTACT PAGE STYLING */
 /* -----------------------------*/
 
-.aboutwelcomeheader {
-  display: flex;
-  justify-content: center;
-  height: 300px;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
+.contactheader {
+  padding: 1rem;
+  margin-bottom: 60px;
 }
-
-#aboutuscontentparent {
-  width: 100%;
-  height: 100%;
+.contactconfirmationparent {
   display: flex;
   flex: wrap;
   flex-direction: column;
-  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contactconfirmationparent h2 {
+  padding: 1rem;
+}
+
+.contactvalidationerror {
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contactvalidationerror ul {
+  padding: 0;
+}
+
+.contactvalidationerror li {
+  width: 330px;
+  text-align: center;
+}
+
+.contactcontentparent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactcontentchild {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60%;
   margin-bottom: 300px;
 }
 
-#aboutuscontentchild {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
+.contactleft {
+  padding: 1rem;
+  width: 60%;
+  height: 600px;
 }
 
-#aboutcolumntopleft {
-  width: 450px;
-  height: 500px;
+.contactright {
+  width: 40%;
+  height: 600px;
+  padding: 1rem;
 }
 
-#aboutcolumntopright {
-  width: 450px;
-  height: 500px;
+/* -------------------------------VALIDATION ERROR STYLING */
+/* -----------------------------*/
+
+.validationerror {
+  width: 500px;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+.validationerror li {
+  width: 330px;
+}
+
+.validationerror ul {
   display: flex;
-  flex: wrap;
-  flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
-#aboutcolumnbottomleft {
-  width: 450px;
-  height: 500px;
+/* -------------------------------LOGIN PAGE STYLING*/
+/* -----------------------------*/
+
+.logincontentparent {
+  height: 700px;
   display: flex;
-  flex: wrap;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-#aboutcolumnbottomright {
-  width: 450px;
-  height: 500px;
+.logincontentparent h5 {
+  padding: 2rem;
+  text-align: center;
 }
 
-.abouttoprightparent h4 {
+#logoutbutton {
+  width: 100px;
+  height: 30px;
+  background-color: #b2b2cf;
+  border: none;
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.logoutbuttonparent {
   display: flex;
-  flex: wrap;
+  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-weight: lighter;
-}
-
-.abouttoprightchild {
-  display: flex;
-  text-align: left;
-  align-items: left;
-  justify-content: left;
-}
-
-.aboutbottomleftparent h4 {
-  display: flex;
-  flex: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-weight: lighter;
-}
-
-.aboutbottomleftchild {
-  text-align: right;
+  justify-content: right;
+  align-items: right;
 }
