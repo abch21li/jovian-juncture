@@ -6,7 +6,6 @@ const expressSession = require("express-session");
 const SQLiteStore = require("connect-sqlite3")(expressSession);
 const bcrypt = require("bcrypt");
 const messageRouter = require("./routers/message-router");
-// const bookingRouter = require("./routers/booking-router");
 const adminUsername = "admin";
 const adminPassword =
   "$2b$10$iI5lehyoaSke9GjnS5wHBub5pSuGqjGKZqqnndr24aFo9eHRwoSvO";
@@ -218,25 +217,6 @@ app.post("/booking/add", function (request, response) {
   }
 });
 
-//FETCH BOOKING ID
-app.get("/bookings/add/:id", function (request, response) {
-  const id = request.params.id;
-  const query = "SELECT * FROM bookings WHERE id = ?";
-  const values = [id];
-
-  db.get(query, values, function (error, booking) {
-    if (error) {
-      console.log(error);
-      //display error
-    } else {
-      const model = {
-        booking,
-      };
-      response.render("booking.hbs", model);
-    }
-  });
-});
-
 //FETCH BOOKING TO UPDATE
 app.get("/booking/update/:id", function (request, response) {
   const id = request.params.id;
@@ -356,25 +336,6 @@ app.get("/reviews", function (request, response) {
         dbError: false,
       };
       response.render("reviews.hbs", model);
-    }
-  });
-});
-
-//FETCH REVIEW ID
-app.get("/reviews/:id", function (request, response) {
-  const id = request.params.id;
-  const query = "SELECT * FROM reviews WHERE id = ?";
-  const values = [id];
-
-  db.get(query, values, function (error, review) {
-    if (error) {
-      console.log(error);
-      //display error
-    } else {
-      const model = {
-        review,
-      };
-      response.render("review.hbs", model);
     }
   });
 });
@@ -587,27 +548,6 @@ app.post("/faq/update/:id", function (request, response) {
     };
     response.render("update-faq.hbs", model);
   }
-});
-
-//FETCH FAQS
-app.get("/faqs/:id", function (request, response) {
-  const id = request.params.id;
-
-  const query = "SELECT * FROM faqs WHERE id = ?";
-
-  const values = [id];
-
-  db.get(query, values, function (error, faq) {
-    if (error) {
-      console.log(error);
-      //display error message
-    } else {
-      const model = {
-        faq,
-      };
-      response.render("faq.hbs", model);
-    }
-  });
 });
 
 //DELETE FAQ

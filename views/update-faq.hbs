@@ -1,76 +1,98 @@
+{{! UPDATE FAQ PAGE CONTENT }}
 
+<div class="reviewsheader">
+  <h1>Update FAQ</h1>
+</div>
 
 <div class="updatefaqparent">
-   <h1>Update FAQ</h1>
   <div class="updatefaqchild">
-  {{#if errors.length}}
-  <div class="faqvalidationerror">
-<h4>An FAQ was not able to be updated because:</h4>
-<ul>
-  {{#each errors}}
-  <li>{{this}}</li>
-  {{/each}} 
-   </div>
+
+    {{! Validation Errors }}
+    {{#if errors.length}}
+      <div class="faqvalidationerror">
+        <h4>An FAQ was not able to be updated because:</h4>
+        <ul>
+          {{#each errors}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
     {{/if}}
+    {{#if errors.length}}
 
-  {{#if errors.length}}
- 
-  <form action="/faq/update/{{id}}" method="post">
-    <div class="form-outline mb-4">
-      <input
-        type="text"
-        name="question"
-        id="questioninput"
-        class="form-control"
-        value="{{newQuestion}}"
-      />
-      <label class="form-label" for="form2Example7">Question</label>
-    </div>
+      <form action="/faq/update/{{id}}" method="post">
 
-    <div class="form-outline mb-4">
-      <input
-        type="text"
-        name="answer"
-        id="answerinput"
-        class="form-control"
-        value="{{newAnswer}}"
-      />
-      <label class="form-label" for="form2Example8">Answer</label>
-    </div>
+        {{! Question Input Field }}
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            name="question"
+            id="questioninput"
+            class="form-control"
+            value="{{newQuestion}}"
+          />
+          <label class="form-label" for="form2Example7">Question</label>
+        </div>
 
-    <button type="submit" value="Confirm" id="submitbutton" class="btn btn-dark"><h5>Confirm
-      </h5></button>
-  </form>
+        {{! Answer Input Field }}
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            name="answer"
+            id="answerinput"
+            class="form-control"
+            value="{{newAnswer}}"
+          />
+          <label class="form-label" for="form2Example8">Answer</label>
+        </div>
 
-  {{else}}
+        {{! Confirm Button }}
+        <button
+          type="submit"
+          value="Confirm"
+          id="submitbutton"
+          class="btn btn-dark"
+        ><h5>Confirm
+          </h5></button>
+      </form>
 
-    <form action="/faq/update/{{id}}" method="post">
-    <div class="form-outline mb-4">
-      <input
-        type="text"
-        name="question"
-        id="questioninput"
-        class="form-control"
-        value="{{question}}"
-      />
-      <label class="form-label" for="form2Example7">Question</label>
-    </div>
+    {{else}}
 
-    <div class="form-outline mb-4">
-      <input
-        type="text"
-        name="answer"
-        id="answerinput"
-        class="form-control"
-        value="{{answer}}"
-      />
-      <label class="form-label" for="form2Example8">Answer</label>
-    </div>
+      <form action="/faq/update/{{id}}" method="post">
 
-    <button type="submit" value="Confirm" id="submitbutton" class="btn btn-dark"><h5>Confirm
-      </h5></button>
-  </form>
+        {{! Question Input Field }}
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            name="question"
+            id="questioninput"
+            class="form-control"
+            value="{{question}}"
+          />
+          <label class="form-label" for="form2Example7">Question</label>
+        </div>
 
-  {{/if}}
+        {{! Answer Input Field }}
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            name="answer"
+            id="answerinput"
+            class="form-control"
+            value="{{answer}}"
+          />
+          <label class="form-label" for="form2Example8">Answer</label>
+        </div>
+
+        {{! Confirm Button }}
+        <button
+          type="submit"
+          value="Confirm"
+          id="submitbutton"
+          class="btn btn-dark"
+        ><h5>Confirm
+          </h5></button>
+      </form>
+    {{/if}}
   </div>
 </div>

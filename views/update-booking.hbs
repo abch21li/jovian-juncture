@@ -1,8 +1,12 @@
-<br />
-<br />
-<h1>Update Booking</h1>
-<br />
+{{! UPDATE BOOKING PAGE CONTENT }}
+
 <div class="updatebookingparent">
+
+  <div class="bookingsheader">
+    <h1>Update Booking</h1>
+  </div>
+
+  {{! Validation Errors }}
   {{#if errors.length}}
     <div class="validationerror">
       <h4>Your booking information was not able to be updated because:</h4>
@@ -14,9 +18,11 @@
       </ul>
     </div>
   {{/if}}
-
   {{#if errors.length}}
+
     <form action="/booking/update/{{id}}" method="post">
+
+      {{! Artist Input Field }}
       <div class="form-outline mb-4">
         <input
           type="text"
@@ -28,6 +34,7 @@
         <label class="form-label" for="form2Example7">Artist</label>
       </div>
 
+      {{! Project Input Field }}
       <div class="form-outline mb-4">
         <input
           type="text"
@@ -39,6 +46,7 @@
         <label class="form-label" for="form2Example7">Project</label>
       </div>
 
+      {{! Email Input Field }}
       <div class="form-outline mb-4">
         <input
           type="text"
@@ -50,6 +58,7 @@
         <label class="form-label" for="form2Example8">Email</label>
       </div>
 
+      {{! Confirm Button }}
       <button
         type="submit"
         value="Confirm"
@@ -66,6 +75,8 @@
   {{else}}
 
     <form action="/booking/update/{{id}}" method="post">
+
+      {{! Artist Input }}
       <div class="form-outline mb-4">
         <input
           type="text"
@@ -77,6 +88,7 @@
         <label class="form-label" for="form2Example7">Artist</label>
       </div>
 
+      {{! Project Input }}
       <div class="form-outline mb-4">
         <input
           type="text"
@@ -88,6 +100,7 @@
         <label class="form-label" for="form2Example7">Project</label>
       </div>
 
+      {{! Email Input}}
       <div class="form-outline mb-4">
         <input
           type="text"
@@ -99,6 +112,7 @@
         <label class="form-label" for="form2Example8">Email</label>
       </div>
 
+      {{! Confirm Button}}
       <button
         type="submit"
         value="Confirm"
@@ -111,6 +125,5 @@
       <br />
       <br />
     </form>
-
   {{/if}}
 </div>
